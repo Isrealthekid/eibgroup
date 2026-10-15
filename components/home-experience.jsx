@@ -1,8 +1,9 @@
-"use client";
+ "use client";
 
 import { useEffect } from 'react';
 import { initializeScrollScene } from '../lib/scroll-scene';
 import { GlobePulse } from '@/components/ui/cobe-globe-pulse';
+import BrandLogo from '@/components/brand-logo';
 
 export default function HomeExperience() {
   useEffect(() => initializeScrollScene(), []);
@@ -11,7 +12,7 @@ export default function HomeExperience() {
     <>
 <a className="skip-link" href="#about">Skip to introduction</a>
   <header className="navigation">
-    <a className="nav-brand" href="#home" aria-label="EIB Group home"><span className="brand-dot" aria-hidden="true"></span><span>EIB GROUP</span></a>
+    <a className="nav-brand" href="#home" aria-label="EIB Group home"><BrandLogo className="nav-logo" /></a>
     <button className="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-menu"><span></span><span></span></button>
     <nav id="site-menu" className="menu" aria-label="Main navigation" hidden>
       <a href="#home">The beginning <span>01</span></a>
@@ -24,7 +25,7 @@ export default function HomeExperience() {
     <div className="scroll-story">
       <div className="stage">
         <section className="intro" aria-label="EIB Group">
-          <h1 className="hero-logo" aria-label="EIB Group"><span>EIB</span><span className="logo-group">GROUP</span></h1>
+          <h1 className="hero-logo" aria-label="EIB Group"><BrandLogo className="hero-brand" /></h1>
           <p className="intro-caption">A WORLD OF POSSIBILITY.</p>
         </section>
         <section className="world" aria-label="Rooted in Africa. Built for the world.">
