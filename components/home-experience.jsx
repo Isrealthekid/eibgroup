@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { initializeScrollScene } from '../lib/scroll-scene';
+import { GlobePulse } from '@/components/ui/cobe-globe-pulse';
 
 export default function HomeExperience() {
   useEffect(() => initializeScrollScene(), []);
@@ -28,7 +29,7 @@ export default function HomeExperience() {
         </section>
         <section className="world" aria-label="Rooted in Africa. Built for the world.">
           <p className="world-copy world-left">Rooted in Africa.</p>
-          <canvas id="earth" width="640" height="640" role="img" aria-label="An automatically rotating Earth illustrated with ASCII characters"></canvas>
+          <GlobePulse id="earth" />
           <p className="world-copy world-right">Built for the world.</p>
         </section>
         <svg className="morph-layer" width="100%" height="100%" aria-hidden="true" focusable="false">

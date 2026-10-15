@@ -4,7 +4,7 @@ import path from 'node:path';
 const artifacts=path.resolve('artifacts');
 await mkdir(artifacts,{recursive:true});
 const profile=path.join(artifacts,`chrome-qa-${Date.now()}`);
-const chrome=spawn('C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',['--headless=new','--disable-gpu','--no-first-run','--no-default-browser-check','--remote-debugging-port=0',`--user-data-dir=${profile}`,'about:blank'],{windowsHide:true,stdio:'ignore'});
+const chrome=spawn('C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',['--headless=new','--use-angle=swiftshader','--enable-unsafe-swiftshader','--no-first-run','--no-default-browser-check','--remote-debugging-port=0',`--user-data-dir=${profile}`,'about:blank'],{windowsHide:true,stdio:'ignore'});
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let ws;
 try {
@@ -34,6 +34,21 @@ try {
    if(p===0)initialLogoWidth=await evaluate(`document.querySelector('.hero-logo').getBoundingClientRect().width`);
    if(p===.08){const width=await evaluate(`document.querySelector('.hero-logo').getBoundingClientRect().width`);if(width>=initialLogoWidth*.8)throw Error('Opening wordmark did not shrink');}
    if(p===.26){if(!await evaluate(`document.querySelector('.seed') instanceof SVGCircleElement && document.querySelector('.seed').r.baseVal.value>8`))throw Error('Morph must use a growing vector circle');}
+   if(p===.36){
+    if(!await evaluate(`document.querySelector('#earth').dataset.globeReady==='true' && document.querySelectorAll('.globe-pulse-marker').length===4 && getComputedStyle(document.querySelector('.globe-canvas')).touchAction==='pan-y'`))throw Error('COBE globe, pulse markers, or touch scrolling failed');
+    if(size.name==='desktop'){
+     const point=await evaluate(`(()=>{const r=document.querySelector('.globe-canvas').getBoundingClientRect();return{x:r.x+r.width/2,y:r.y+r.height/2};})()`);
+     await send('Input.dispatchMouseEvent',{type:'mousePressed',x:point.x,y:point.y,button:'left',clickCount:1});
+     const before=await evaluate(`document.querySelector('.globe-pulse-marker').style.left`);
+     await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:point.x+90,y:point.y,button:'left',buttons:1});await sleep(100);
+     const after=await evaluate(`document.querySelector('.globe-pulse-marker').style.left`);
+     await send('Input.dispatchMouseEvent',{type:'mouseReleased',x:point.x+90,y:point.y,button:'left',clickCount:1});
+     if(Math.abs(parseFloat(before)-parseFloat(after))<2)throw Error('Dragging did not rotate globe markers');
+     await send('Emulation.setDeviceMetricsOverride',{width:1000,height:700,deviceScaleFactor:1,mobile:false});await sleep(300);
+     if(!await evaluate(`(()=>{const c=document.querySelector('.globe-canvas');return Math.abs(c.width-c.clientWidth*devicePixelRatio)<3;})()`))throw Error('WebGL canvas did not resize');
+     await send('Emulation.setDeviceMetricsOverride',{width:size.width,height:size.height,deviceScaleFactor:1,mobile:false});await sleep(300);
+    }
+   }
    if(p===.36||p===1){
     const problems=await evaluate(`(()=>{const selectors=${p===.36?JSON.stringify(['.world-left','.world-right','#earth']):JSON.stringify(['h2','.purpose-statement','.contact-link','footer'])};return selectors.filter(s=>{const r=document.querySelector(s).getBoundingClientRect();return r.left<0||r.right>innerWidth||r.top<0||r.bottom>innerHeight;});})()`);
     if(problems.length)throw Error(size.name+' content outside viewport: '+problems.join(', '));
@@ -50,7 +65,7 @@ try {
  await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});await sleep(300);
  report.push({reducedMotion:await evaluate(`({staticGlobe:getComputedStyle(document.querySelector('.world')).position,visibleText:getComputedStyle(document.querySelector('.word')).opacity,pageHeight:document.querySelector('.scroll-story').offsetHeight,viewport:innerHeight})`)});
  await writeFile(path.join(artifacts,'qa-results.json'),JSON.stringify({errors,report},null,2));
- console.log(JSON.stringify({errors,report},null,2));
+ console.log(JSON.stringify({errors,viewports:6,scrollSnapshots:report.length-1,reducedMotion:report.at(-1).reducedMotion},null,2));
  if(errors.length||report.some(r=>r.overflow))throw Error('Browser validation failed');
  await send('Browser.close').catch(()=>{});
 } finally { ws?.close();chrome.kill(); }
