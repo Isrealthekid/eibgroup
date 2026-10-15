@@ -20,16 +20,24 @@ try {
  const evaluate=async expression=>(await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true})).result.value;
  await send('Runtime.enable');await send('Page.enable');
  const report=[];
- for(const size of [{name:'desktop',width:1440,height:900},{name:'mobile',width:390,height:844}]){
+ for(const size of [{name:'wide',width:1920,height:1080},{name:'desktop',width:1440,height:900},{name:'tablet',width:768,height:1024},{name:'mobile',width:390,height:844},{name:'small-mobile',width:320,height:568},{name:'landscape',width:844,height:390}]){
   await send('Emulation.setDeviceMetricsOverride',{width:size.width,height:size.height,deviceScaleFactor:1,mobile:false});
   const response=await fetch('http://127.0.0.1:4173');if(!response.ok)throw Error('Preview HTTP check failed');
   await send('Page.navigate',{url:'http://127.0.0.1:4173'});await sleep(700);
   if(!await evaluate(`Boolean(document.querySelector('.hero-logo'))`))throw Error('Preview did not load');
   if(!await evaluate(`[...document.scripts].some(script=>script.src.includes('/_next/'))`))throw Error('Next.js assets did not load');
-  for(const p of [0,.135,.36,.65,.91,1]){
+  let initialLogoWidth;
+  for(const p of [0,.08,.18,.26,.36,.65,.91,1]){
    await evaluate(`scrollTo(0,(document.querySelector('.scroll-story').offsetHeight-document.querySelector('.stage').clientHeight)*${p})`);await sleep(1600);
    const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(path.join(artifacts,`${size.name}-${p}.png`),Buffer.from(shot.data,'base64'));
    report.push({viewport:size.name,p,...await evaluate(`({scrollY,overflow:document.documentElement.scrollWidth>innerWidth,globeOpacity:getComputedStyle(document.querySelector('.world')).opacity,wordOpacity:[...document.querySelectorAll('.word')].map(w=>getComputedStyle(w).opacity),purposeVisible:document.querySelector('.purpose').classList.contains('is-visible')})`)});
+   if(p===0)initialLogoWidth=await evaluate(`document.querySelector('.hero-logo').getBoundingClientRect().width`);
+   if(p===.08){const width=await evaluate(`document.querySelector('.hero-logo').getBoundingClientRect().width`);if(width>=initialLogoWidth*.8)throw Error('Opening wordmark did not shrink');}
+   if(p===.26){if(!await evaluate(`document.querySelector('.seed') instanceof SVGCircleElement && document.querySelector('.seed').r.baseVal.value>8`))throw Error('Morph must use a growing vector circle');}
+   if(p===.36||p===1){
+    const problems=await evaluate(`(()=>{const selectors=${p===.36?JSON.stringify(['.world-left','.world-right','#earth']):JSON.stringify(['h2','.purpose-statement','.contact-link','footer'])};return selectors.filter(s=>{const r=document.querySelector(s).getBoundingClientRect();return r.left<0||r.right>innerWidth||r.top<0||r.bottom>innerHeight;});})()`);
+    if(problems.length)throw Error(size.name+' content outside viewport: '+problems.join(', '));
+   }
   }
   await evaluate(`document.querySelector('.menu-toggle').click()`);
   if(!await evaluate(`document.querySelector('.menu-toggle').getAttribute('aria-expanded')==='true'&&!document.querySelector('.menu').hidden`))throw Error('Menu failed to open');
@@ -37,6 +45,7 @@ try {
   if(!await evaluate(`document.querySelector('.menu').hidden`))throw Error('Escape failed to close menu');
   await evaluate(`document.querySelector('a[href="#home"]').click()`);await sleep(2300);
   if(await evaluate('scrollY')>2)throw Error('Home navigation failed');
+  console.log('Passed '+size.name+' layout, logo collapse, vector morph, scroll reveal, and navigation');
  }
  await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});await sleep(300);
  report.push({reducedMotion:await evaluate(`({staticGlobe:getComputedStyle(document.querySelector('.world')).position,visibleText:getComputedStyle(document.querySelector('.word')).opacity,pageHeight:document.querySelector('.scroll-story').offsetHeight,viewport:innerHeight})`)});

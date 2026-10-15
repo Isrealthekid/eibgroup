@@ -8,7 +8,7 @@ Run `npm install`, then `npm run dev` and visit http://localhost:3000.
 
 The route is in `app/page.jsx`; page markup, the placeholder wordmark, and tagline are in `components/home-experience.jsx`. Global styles are in `app/globals.css`. The ASCII Earth renderer and scroll choreography live in `lib/scroll-scene.js`, initialized through a React effect with event-listener and animation-frame cleanup. Metadata and the root document are in `app/layout.jsx`.
 
-Sequence: text wordmark enlarges and blurs → white seed expands into an automatically rotating ASCII Earth → Earth fills white → blue circle follows after 500 ms → a second white reveal opens the purpose section → tagline words move from 50% to 100% opacity.
+Sequence: text wordmark shrinks and blurs into a tiny SVG circle → the circle grows and morphs into an automatically rotating ASCII Earth → Earth fills white → blue circle follows after 500 ms → a second white reveal opens the purpose section → tagline words move from 50% to 100% opacity.
 
 The experience uses native page scrolling, reverses when scrolling upward, supports mobile viewports, and provides a static three-section experience for reduced-motion preferences. The menu supports keyboard navigation and Escape. No analytics or third-party runtime requests are included.
 

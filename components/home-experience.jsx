@@ -26,15 +26,16 @@ export default function HomeExperience() {
           <h1 className="hero-logo" aria-label="EIB Group"><span>EIB</span><span className="logo-group">GROUP</span></h1>
           <p className="intro-caption">A WORLD OF POSSIBILITY.</p>
         </section>
-        <div className="seed" aria-hidden="true"></div>
         <section className="world" aria-label="Rooted in Africa. Built for the world.">
           <p className="world-copy world-left">Rooted in Africa.</p>
           <canvas id="earth" width="640" height="640" role="img" aria-label="An automatically rotating Earth illustrated with ASCII characters"></canvas>
           <p className="world-copy world-right">Built for the world.</p>
-          <div className="globe-caption" aria-hidden="true"><span className="live-dot"></span> ONE WORLD. LIMITLESS POSSIBILITY.</div>
         </section>
-        <div className="circle circle-white" aria-hidden="true"></div>
-        <div className="circle circle-blue" aria-hidden="true"></div>
+        <svg className="morph-layer" width="100%" height="100%" aria-hidden="true" focusable="false">
+          <circle className="seed" cx="50%" cy="50%" r="0" />
+          <circle className="circle-white" cx="50%" cy="50%" r="0" />
+          <circle className="circle-blue" cx="50%" cy="50%" r="0" />
+        </svg>
         <section className="purpose" aria-labelledby="purpose-title">
           <div className="purpose-content">
             <p className="eyebrow">THE FUTURE IS OUR SHARED PURPOSE</p>
@@ -44,7 +45,6 @@ export default function HomeExperience() {
           </div>
           <footer><span>EIB GROUP © <span id="year">2026</span></span><a href="mailto:info@eibgroup.com">INFO@EIBGROUP.COM <span aria-hidden="true">↗</span></a><a href="#home">BACK TO THE BEGINNING ↑</a></footer>
         </section>
-        <div className="stage-meta" aria-hidden="true"><span className="meta-left">INSPIRING PROGRESS</span><span className="chapter">01 — THE BEGINNING</span><span className="meta-right">AFRICA → THE WORLD</span></div>
         <button className="scroll-prompt" aria-label="Scroll to explore our world"><span>↓</span> SCROLL TO EXPLORE <span>↓</span></button>
         <div className="progress-track" aria-hidden="true"><div></div></div>
       </div>
