@@ -1,8 +1,12 @@
-# EIB Group homepage concept
+# EIB Group — Next.js
 
-Run `npm run dev`, then visit http://localhost:4173. No dependencies or build step are required. `npm run check` checks JavaScript syntax.
+The Next.js App Router project lives directly in this `eibgroup` folder.
 
-The static website is in `dist/`. The text wordmark is in `dist/index.html`; replace `.hero-logo` with the eventual logo while retaining its animation wrapper. The tagline is draft copy and can be edited in the same file. Styling lives in `dist/styles.css`; ASCII globe rendering and scroll choreography are in `dist/app.js`.
+Run `npm install`, then `npm run dev` and visit http://localhost:3000.
+
+`npm run build` generates the production static export in `out/`. Run `npm start` to preview that build at http://localhost:4173. `npm run check` checks the animation module's JavaScript syntax. With the preview server running, `npm run test:browser` verifies the desktop and mobile scroll sequence, navigation, runtime errors, and reduced motion in headless Chrome on Windows.
+
+The route is in `app/page.jsx`; page markup, the placeholder wordmark, and tagline are in `components/home-experience.jsx`. Global styles are in `app/globals.css`. The ASCII Earth renderer and scroll choreography live in `lib/scroll-scene.js`, initialized through a React effect with event-listener and animation-frame cleanup. Metadata and the root document are in `app/layout.jsx`.
 
 Sequence: text wordmark enlarges and blurs → white seed expands into an automatically rotating ASCII Earth → Earth fills white → blue circle follows after 500 ms → a second white reveal opens the purpose section → tagline words move from 50% to 100% opacity.
 

@@ -15,7 +15,7 @@ try {
  ws=new WebSocket(targets.find(t=>t.type==='page').webSocketDebuggerUrl);
  await new Promise(r=>ws.addEventListener('open',r,{once:true}));
  let id=0;const pending=new Map(),errors=[];
- ws.addEventListener('message',e=>{const m=JSON.parse(e.data);if(m.id){const cb=pending.get(m.id);pending.delete(m.id);if(m.error)cb.reject(m.error);else cb.resolve(m.result);}if(m.method==='Runtime.exceptionThrown')errors.push(m.params.exceptionDetails);});
+ ws.addEventListener('message',e=>{const m=JSON.parse(e.data);if(m.id){const cb=pending.get(m.id);pending.delete(m.id);if(m.error)cb.reject(m.error);else cb.resolve(m.result);}if(m.method==='Runtime.exceptionThrown')errors.push(m.params.exceptionDetails);if(m.method==='Runtime.consoleAPICalled'&&m.params.type==='error')errors.push(m.params.args.map(a=>a.value||a.description).join(' '));});
  const send=(method,params={})=>new Promise((resolve,reject)=>{const n=++id;pending.set(n,{resolve,reject});ws.send(JSON.stringify({id:n,method,params}));});
  const evaluate=async expression=>(await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true})).result.value;
  await send('Runtime.enable');await send('Page.enable');
@@ -25,6 +25,7 @@ try {
   const response=await fetch('http://127.0.0.1:4173');if(!response.ok)throw Error('Preview HTTP check failed');
   await send('Page.navigate',{url:'http://127.0.0.1:4173'});await sleep(700);
   if(!await evaluate(`Boolean(document.querySelector('.hero-logo'))`))throw Error('Preview did not load');
+  if(!await evaluate(`[...document.scripts].some(script=>script.src.includes('/_next/'))`))throw Error('Next.js assets did not load');
   for(const p of [0,.135,.36,.65,.91,1]){
    await evaluate(`scrollTo(0,(document.querySelector('.scroll-story').offsetHeight-document.querySelector('.stage').clientHeight)*${p})`);await sleep(1600);
    const shot=await send('Page.captureScreenshot',{format:'png'});await writeFile(path.join(artifacts,`${size.name}-${p}.png`),Buffer.from(shot.data,'base64'));
