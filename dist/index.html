@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0d0f">
+  <meta name="description" content="EIB Group. Engineering tomorrow. Empowering Africa. Discover a world of possibility.">
+  <title>EIB Group — Engineering Tomorrow</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%232e50ff'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-size='25' font-family='Arial' font-weight='700' fill='white'%3Eeib%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#about">Skip to introduction</a>
+  <header class="navigation">
+    <a class="nav-brand" href="#home" aria-label="EIB Group home"><span class="brand-dot" aria-hidden="true"></span><span>EIB GROUP</span></a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-menu"><span></span><span></span></button>
+    <nav id="site-menu" class="menu" aria-label="Main navigation" hidden>
+      <a href="#home">The beginning <span>01</span></a>
+      <a href="#world">Our world <span>02</span></a>
+      <a href="#about">Our purpose <span>03</span></a>
+      <a href="mailto:info@eibgroup.com">Get in touch <span>↗</span></a>
+    </nav>
+  </header>
+  <main id="home">
+    <div class="scroll-story">
+      <div class="stage">
+        <section class="intro" aria-label="EIB Group">
+          <h1 class="hero-logo" aria-label="EIB Group"><span>EIB</span><span class="logo-group">GROUP</span></h1>
+          <p class="intro-caption">A WORLD OF POSSIBILITY.</p>
+        </section>
+        <div class="seed" aria-hidden="true"></div>
+        <section class="world" aria-label="Rooted in Africa. Built for the world.">
+          <p class="world-copy world-left">Rooted in Africa.</p>
+          <canvas id="earth" width="640" height="640" role="img" aria-label="An automatically rotating Earth illustrated with ASCII characters"></canvas>
+          <p class="world-copy world-right">Built for the world.</p>
+          <div class="globe-caption" aria-hidden="true"><span class="live-dot"></span> ONE WORLD. LIMITLESS POSSIBILITY.</div>
+        </section>
+        <div class="circle circle-white" aria-hidden="true"></div>
+        <div class="circle circle-blue" aria-hidden="true"></div>
+        <section class="purpose" aria-labelledby="purpose-title">
+          <div class="purpose-content">
+            <p class="eyebrow">THE FUTURE IS OUR SHARED PURPOSE</p>
+            <h2 id="purpose-title">Engineering tomorrow.<br>Empowering Africa.</h2>
+            <p class="purpose-statement">We bring bold ideas to life, building businesses that move Africa forward.</p>
+            <a class="contact-link" href="mailto:info@eibgroup.com">Let’s build what’s next <span aria-hidden="true">↗</span></a>
+          </div>
+          <footer><span>EIB GROUP © <span id="year">2026</span></span><a href="mailto:info@eibgroup.com">INFO@EIBGROUP.COM <span aria-hidden="true">↗</span></a><a href="#home">BACK TO THE BEGINNING ↑</a></footer>
+        </section>
+        <div class="stage-meta" aria-hidden="true"><span class="meta-left">INSPIRING PROGRESS</span><span class="chapter">01 — THE BEGINNING</span><span class="meta-right">AFRICA → THE WORLD</span></div>
+        <button class="scroll-prompt" aria-label="Scroll to explore our world"><span>↓</span> SCROLL TO EXPLORE <span>↓</span></button>
+        <div class="progress-track" aria-hidden="true"><div></div></div>
+      </div>
+    </div>
+    <span id="world" class="anchor-world" aria-hidden="true"></span>
+    <span id="about" class="anchor-about" aria-hidden="true"></span>
+  </main>
+  <noscript><style>.scroll-story{height:100svh}.intro{display:none}.purpose{clip-path:none!important}.purpose-statement,.contact-link{opacity:1!important}</style></noscript>
+</body>
+</html>
