@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { initializeScrollScene } from '../lib/scroll-scene';
 import { GlobePulse } from '@/components/ui/cobe-globe-pulse';
 import BrandLogo from '@/components/brand-logo';
+import SiteNavigation from '@/components/site-navigation';
 
 export default function HomeExperience() {
   useEffect(() => initializeScrollScene(), []);
@@ -11,16 +12,7 @@ export default function HomeExperience() {
   return (
     <>
 <a className="skip-link" href="#about">Skip to introduction</a>
-  <header className="navigation">
-    <a className="nav-brand" href="#home" aria-label="EIB Group home"><BrandLogo className="nav-logo" /></a>
-    <button className="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-menu"><span></span><span></span></button>
-    <nav id="site-menu" className="menu" aria-label="Main navigation" hidden>
-      <a href="#home">The beginning <span>01</span></a>
-      <a href="#world">Our world <span>02</span></a>
-      <a href="#about">Our purpose <span>03</span></a>
-      <a href="mailto:info@eibgroup.com">Get in touch <span>↗</span></a>
-    </nav>
-  </header>
+  <SiteNavigation />
   <main id="home">
     <div className="scroll-story">
       <div className="stage">

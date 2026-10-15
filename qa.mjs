@@ -55,9 +55,11 @@ try {
    }
   }
   await evaluate(`document.querySelector('.menu-toggle').click()`);
-  if(!await evaluate(`document.querySelector('.menu-toggle').getAttribute('aria-expanded')==='true'&&!document.querySelector('.menu').hidden`))throw Error('Menu failed to open');
+  await sleep(50);
+  if(!await evaluate(`document.querySelector('.menu-toggle').getAttribute('aria-expanded')==='true'&&!document.querySelector('.menu').inert`))throw Error('Menu failed to open');
   await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});
-  if(!await evaluate(`document.querySelector('.menu').hidden`))throw Error('Escape failed to close menu');
+  await sleep(50);
+  if(!await evaluate(`document.querySelector('.menu').inert`))throw Error('Escape failed to close menu');
   await evaluate(`document.querySelector('a[href="#home"]').click()`);await sleep(2300);
   if(await evaluate('scrollY')>2)throw Error('Home navigation failed');
   console.log('Passed '+size.name+' layout, logo collapse, vector morph, scroll reveal, and navigation');
