@@ -6,6 +6,8 @@ import { GlobePulse } from '@/components/ui/cobe-globe-pulse';
 import BrandLogo from '@/components/brand-logo';
 import SiteNavigation from '@/components/site-navigation';
 
+const purposeCopy = 'Engineering tomorrow. Empowering Africa. We bring bold ideas to life, building businesses that move Africa forward.';
+
 export default function HomeExperience() {
   useEffect(() => initializeScrollScene(), []);
 
@@ -32,9 +34,7 @@ export default function HomeExperience() {
         </svg>
         <section className="purpose" aria-labelledby="purpose-title">
           <div className="purpose-content">
-            <p className="eyebrow">THE FUTURE IS OUR SHARED PURPOSE</p>
-            <h2 id="purpose-title"><span className="word">Engineering</span>{" "}<span className="word">tomorrow.</span><br /><span className="word">Empowering</span>{" "}<span className="word">Africa.</span></h2>
-            <p className="purpose-statement">We bring bold ideas to life, building businesses that move Africa forward.</p>
+            <h2 id="purpose-title">{purposeCopy.split(' ').map((word, index) => <span key={index}><span className="word">{word}</span>{' '}</span>)}</h2>
             <a className="contact-link" href="mailto:info@eibgroup.com">Let’s build what’s next <span aria-hidden="true">↗</span></a>
           </div>
           <footer><span>EIB GROUP © <span id="year">2026</span></span><a href="mailto:info@eibgroup.com">INFO@EIBGROUP.COM <span aria-hidden="true">↗</span></a><a href="#home">BACK TO THE BEGINNING ↑</a></footer>

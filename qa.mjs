@@ -50,7 +50,7 @@ try {
     }
    }
    if(p===.36||p===1){
-    const problems=await evaluate(`(()=>{const selectors=${p===.36?JSON.stringify(['.world-left','.world-right','#earth']):JSON.stringify(['h2','.purpose-statement','.contact-link','footer'])};return selectors.filter(s=>{const r=document.querySelector(s).getBoundingClientRect();return r.left<0||r.right>innerWidth||r.top<0||r.bottom>innerHeight;});})()`);
+    const problems=await evaluate(`(()=>{const selectors=${p===.36?JSON.stringify(['.world-left','.world-right','#earth']):JSON.stringify(['h2','.contact-link','footer'])};return selectors.filter(s=>{const r=document.querySelector(s).getBoundingClientRect();return r.left<0||r.right>innerWidth||r.top<0||r.bottom>innerHeight;});})()`);
     if(problems.length)throw Error(size.name+' content outside viewport: '+problems.join(', '));
    }
   }

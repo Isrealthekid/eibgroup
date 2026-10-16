@@ -1,29 +1,57 @@
 /* A single frosted surface expands from the compact brand bar. */
 .navigation {
   --nav-duration: 1.5s;
+  --nav-foreground: #f8f8f4;
+  --nav-muted: #b5b5ba;
+  --nav-surface: rgb(36 36 38 / 36%);
+  --nav-border: rgb(255 255 255 / 9%);
+  top: 64px;
   display: block;
   width: 248px;
   height: 56px;
   padding: 0;
   overflow: hidden;
   border-radius: 6px;
-  border: 1px solid rgb(255 255 255 / 7%);
-  background: rgb(30 30 32 / 72%);
-  -webkit-backdrop-filter: blur(26px) saturate(140%);
-  backdrop-filter: blur(26px) saturate(140%);
-  box-shadow: 0 12px 44px rgb(0 0 0 / 10%);
+  isolation: isolate;
+  color: var(--nav-foreground);
+  border: 1px solid var(--nav-border);
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 4%);
   transition: width var(--nav-duration) ease-in-out,
     height var(--nav-duration) ease-in-out,
     border-radius var(--nav-duration) ease-in-out,
-    background-color var(--nav-duration) ease-in-out;
+    color .25s ease, border-color .25s ease;
   animation: nav-display var(--nav-duration) ease-in-out both;
 }
+.navigation::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--nav-surface);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  backdrop-filter: blur(18px) saturate(135%);
+  pointer-events: none;
+  transition: background-color .25s ease;
+}
+.navigation[data-tone=light] {
+  --nav-foreground: #242424;
+  --nav-muted: #67676b;
+  --nav-surface: rgb(230 230 230 / 55%);
+  --nav-border: rgb(0 0 0 / 5%);
+  color-scheme: light;
+}
+.nav-logo, .nav-symbol { filter: brightness(1); transition: filter .25s ease; }
+.navigation[data-tone=light] .nav-logo, .navigation[data-tone=light] .nav-symbol { filter: brightness(0); }
 .navigation.is-open {
   width: min(720px, calc(100vw - 40px));
   height: 312px;
   max-height: calc(100svh - 88px);
   border-radius: 16px;
-  background: rgb(30 30 32 / 76%);
+  background: transparent;
 }
 .nav-top { position: relative; width: 100%; height: 56px; }
 .nav-brand { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); gap: 0; }
@@ -61,17 +89,17 @@
 }
 .menu-links { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
 .menu .menu-links a { display: block; padding: 10px 0; border: 0; font-size: 20px; line-height: 1.2; font-weight: 500; letter-spacing: -.04em; white-space: nowrap; }
-.menu a:hover { color: #fff; }
+.menu a:hover { color: var(--nav-foreground); }
 .menu-links a:hover { text-decoration: underline; text-underline-offset: 5px; }
-.menu a.menu-feature { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 22px; min-height: 196px; padding: 20px; border: 1px solid rgb(255 255 255 / 8%); border-radius: 14px; background: rgb(255 255 255 / 1%); }
-.menu .menu-feature-label { color: #89898d; font: 10px/1.4 'Courier New', monospace; letter-spacing: .15em; }
-.menu .menu-feature-title { color: var(--paper); font-size: clamp(19px, 2.6vw, 26px); line-height: 1.2; font-weight: 500; letter-spacing: -.045em; }
-.menu .menu-feature-link { display: flex; justify-content: space-between; width: 100%; color: #a8a8ad; font-size: 12px; }
+.menu a.menu-feature { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 22px; min-height: 196px; padding: 20px; border: 1px solid var(--nav-border); border-radius: 14px; background: transparent; }
+.menu .menu-feature-label { color: var(--nav-muted); font: 10px/1.4 'Courier New', monospace; letter-spacing: .15em; }
+.menu .menu-feature-title { color: var(--nav-foreground); font-size: clamp(19px, 2.6vw, 26px); line-height: 1.2; font-weight: 500; letter-spacing: -.045em; }
+.menu .menu-feature-link { display: flex; justify-content: space-between; width: 100%; color: var(--nav-muted); font-size: 12px; }
 .menu .menu-feature-link span { color: inherit; font-size: 16px; }
 .menu-feature:hover { background: rgb(255 255 255 / 4%); }
 @keyframes nav-display {
-  from { opacity: 0; transform: translate(-50%, -12px); }
-  to { opacity: 1; transform: translate(-50%, 0); }
+  from { transform: translate(-50%, -12px); }
+  to { transform: translate(-50%, 0); }
 }
 @media (max-width: 600px) {
   .navigation { width: 248px; height: 56px; top: 20px; }
@@ -89,5 +117,5 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .navigation { animation: none; }
-  .navigation, .menu, .nav-symbol, .menu-toggle span { transition-duration: 0s; transition-delay: 0s; }
+  .navigation, .navigation::before, .menu, .nav-logo, .nav-symbol, .menu-toggle span { transition-duration: 0s; transition-delay: 0s; }
 }
