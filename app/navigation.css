@@ -1,6 +1,6 @@
 /* A single frosted surface expands from the compact brand bar. */
 .navigation {
-  --nav-duration: 1.5s;
+  --nav-duration: 0.5s;
   --nav-foreground: #f8f8f4;
   --nav-muted: #b5b5ba;
   --nav-surface: rgb(36 36 38 / 36%);
