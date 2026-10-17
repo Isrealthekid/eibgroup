@@ -5,6 +5,7 @@ import { initializeScrollScene } from '../lib/scroll-scene';
 import { GlobePulse } from '@/components/ui/cobe-globe-pulse';
 import BrandLogo from '@/components/brand-logo';
 import SiteNavigation from '@/components/site-navigation';
+import CompaniesSection from '@/components/companies-section';
 
 const aboutCopy = 'EIB Group unites businesses across fashion, security, communications and infrastructure, driving change and shaping Africa’s future.';
 
@@ -42,6 +43,7 @@ export default function HomeExperience() {
       </div>
     </div>
     <span id="world" className="anchor-world" aria-hidden="true"></span>
+    <CompaniesSection />
   </main>
   
     <noscript><style>{'.scroll-story{height:100svh}.intro{display:none}.purpose{clip-path:none!important;pointer-events:auto}h2 .word{opacity:1!important}'}</style></noscript>

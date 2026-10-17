@@ -1,0 +1,58 @@
+/* Only the companies panel is a snap target; the opening story stays continuous. */
+html { scroll-snap-type: y proximity; }
+.companies {
+  min-height: 100svh;
+  scroll-snap-align: start;
+  background: var(--brand-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: clamp(144px, 18svh, 180px) clamp(24px, 5.5vw, 112px) 48px;
+}
+.companies-content { width: min(100%, 1120px); margin-inline: auto; }
+.companies h2 {
+  margin: 0 0 clamp(24px, 4svh, 40px);
+  font-size: clamp(36px, 4.7vw, 80px);
+  font-weight: 400;
+  letter-spacing: -.045em;
+  line-height: 1.05;
+}
+.companies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 1.3vw, 20px);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.company-card {
+  min-width: 0;
+  min-height: clamp(96px, 12svh, 136px);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #fff;
+  color: var(--ink);
+  text-align: center;
+}
+.company-card h3 { margin: 0; font-size: clamp(18px, 1.8vw, 28px); font-weight: 500; line-height: 1.15; letter-spacing: -.04em; }
+.company-card p { margin: 0; font-size: clamp(11px, .85vw, 14px); line-height: 1.35; color: #626267; }
+@media (max-width: 900px) {
+  .companies { padding-inline: 24px; padding-top: 124px; }
+  .companies-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .company-card { min-height: 92px; padding: 18px 12px; }
+}
+@media (max-width: 359px) {
+  .companies { padding-inline: 20px; }
+  .companies-grid { grid-template-columns: minmax(0, 1fr); }
+  .company-card { min-height: 88px; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .companies { padding-top: 100px; padding-bottom: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-snap-type: none; }
+}

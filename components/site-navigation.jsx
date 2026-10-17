@@ -43,7 +43,7 @@ export default function SiteNavigation() {
       <nav id="site-menu" className="menu" aria-label="Main navigation" aria-hidden={!isOpen} inert={!isOpen}>
         <div className="menu-links" onClick={() => setIsOpen(false)}>
           <a href="#about">About</a>
-          <a href="#world">Industries</a>
+          <a href="#companies">Industries</a>
           <a href="https://www.brightechefufoundation.org" target="_blank" rel="noopener noreferrer" aria-label="Our Foundation: Bright Echefu Foundation (opens in a new tab)">Our Foundation</a>
           <a href="mailto:info@eibgroup.com">Contact</a>
         </div>

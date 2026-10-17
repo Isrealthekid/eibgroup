@@ -1,6 +1,7 @@
 import './globals.css';
 import './navigation.css';
 import './purpose.css';
+import './companies.css';
 
 export const metadata = {
   title: 'EIB Group — Engineering Tomorrow',
