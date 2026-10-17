@@ -35,9 +35,7 @@ export default function HomeExperience() {
         <section id="about" className="purpose" aria-label="About EIB Group">
           <div className="purpose-content">
             <h2 id="purpose-title">{aboutCopy.split(' ').map((word, index) => <span key={index}><span className="word">{word}</span>{' '}</span>)}</h2>
-            <a className="contact-link" href="mailto:info@eibgroup.com">Let’s build what’s next <span aria-hidden="true">↗</span></a>
           </div>
-          <footer><span>EIB GROUP © <span id="year">2026</span></span><a href="mailto:info@eibgroup.com">INFO@EIBGROUP.COM <span aria-hidden="true">↗</span></a><a href="#home">BACK TO THE BEGINNING ↑</a></footer>
         </section>
         <button className="scroll-prompt" aria-label="Scroll to explore our world"><span>↓</span> SCROLL TO EXPLORE <span>↓</span></button>
         <div className="progress-track" aria-hidden="true"><div></div></div>
@@ -46,7 +44,7 @@ export default function HomeExperience() {
     <span id="world" className="anchor-world" aria-hidden="true"></span>
   </main>
   
-    <noscript><style>{'.scroll-story{height:100svh}.intro{display:none}.purpose{clip-path:none!important;pointer-events:auto}.purpose-statement,.contact-link,h2 .word{opacity:1!important}'}</style></noscript>
+    <noscript><style>{'.scroll-story{height:100svh}.intro{display:none}.purpose{clip-path:none!important;pointer-events:auto}h2 .word{opacity:1!important}'}</style></noscript>
     </>
   );
 }
