@@ -44,7 +44,7 @@ export default function SiteNavigation() {
         <div className="menu-links" onClick={() => setIsOpen(false)}>
           <a href="#about">About</a>
           <a href="#world">Industries</a>
-          <a href="https://x.com/BEFoundation_" target="_blank" rel="noopener noreferrer" aria-label="Our Foundation: Bright Echefu Foundation (opens in a new tab)">Our Foundation</a>
+          <a href="https://www.brightechefufoundation.org" target="_blank" rel="noopener noreferrer" aria-label="Our Foundation: Bright Echefu Foundation (opens in a new tab)">Our Foundation</a>
           <a href="mailto:info@eibgroup.com">Contact</a>
         </div>
         <a className="menu-feature" href="#about" onClick={() => setIsOpen(false)}>
