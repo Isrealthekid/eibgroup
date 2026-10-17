@@ -42,10 +42,9 @@ export default function SiteNavigation() {
       </div>
       <nav id="site-menu" className="menu" aria-label="Main navigation" aria-hidden={!isOpen} inert={!isOpen}>
         <div className="menu-links" onClick={() => setIsOpen(false)}>
-          <a href="#home">The beginning</a>
-          <a href="#world">Our world</a>
-          <a href="#about">Our purpose</a>
-          <a href="mailto:info@eibgroup.com">Get in touch</a>
+          <a href="#about">About</a>
+          <a href="#world">Industries</a>
+          <a href="mailto:info@eibgroup.com">Contact</a>
         </div>
         <a className="menu-feature" href="#about" onClick={() => setIsOpen(false)}>
           <span className="menu-feature-label">OUR PURPOSE</span>
