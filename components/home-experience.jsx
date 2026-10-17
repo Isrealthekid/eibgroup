@@ -6,7 +6,7 @@ import { GlobePulse } from '@/components/ui/cobe-globe-pulse';
 import BrandLogo from '@/components/brand-logo';
 import SiteNavigation from '@/components/site-navigation';
 
-const purposeCopy = 'Engineering tomorrow. Empowering Africa. We bring bold ideas to life, building businesses that move Africa forward.';
+const aboutCopy = 'EIB Group unites businesses across fashion, security, communications and infrastructure, driving change and shaping Africa’s future.';
 
 export default function HomeExperience() {
   useEffect(() => initializeScrollScene(), []);
@@ -32,9 +32,9 @@ export default function HomeExperience() {
           <circle className="circle-white" cx="50%" cy="50%" r="0" />
           <circle className="circle-blue" cx="50%" cy="50%" r="0" />
         </svg>
-        <section className="purpose" aria-labelledby="purpose-title">
+        <section id="about" className="purpose" aria-label="About EIB Group">
           <div className="purpose-content">
-            <h2 id="purpose-title">{purposeCopy.split(' ').map((word, index) => <span key={index}><span className="word">{word}</span>{' '}</span>)}</h2>
+            <h2 id="purpose-title">{aboutCopy.split(' ').map((word, index) => <span key={index}><span className="word">{word}</span>{' '}</span>)}</h2>
             <a className="contact-link" href="mailto:info@eibgroup.com">Let’s build what’s next <span aria-hidden="true">↗</span></a>
           </div>
           <footer><span>EIB GROUP © <span id="year">2026</span></span><a href="mailto:info@eibgroup.com">INFO@EIBGROUP.COM <span aria-hidden="true">↗</span></a><a href="#home">BACK TO THE BEGINNING ↑</a></footer>
@@ -44,7 +44,6 @@ export default function HomeExperience() {
       </div>
     </div>
     <span id="world" className="anchor-world" aria-hidden="true"></span>
-    <span id="about" className="anchor-about" aria-hidden="true"></span>
   </main>
   
     <noscript><style>{'.scroll-story{height:100svh}.intro{display:none}.purpose{clip-path:none!important;pointer-events:auto}.purpose-statement,.contact-link,h2 .word{opacity:1!important}'}</style></noscript>

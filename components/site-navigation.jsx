@@ -44,12 +44,13 @@ export default function SiteNavigation() {
         <div className="menu-links" onClick={() => setIsOpen(false)}>
           <a href="#about">About</a>
           <a href="#world">Industries</a>
+          <a href="https://x.com/BEFoundation_" target="_blank" rel="noopener noreferrer" aria-label="Our Foundation: Bright Echefu Foundation (opens in a new tab)">Our Foundation</a>
           <a href="mailto:info@eibgroup.com">Contact</a>
         </div>
         <a className="menu-feature" href="#about" onClick={() => setIsOpen(false)}>
-          <span className="menu-feature-label">OUR PURPOSE</span>
-          <span className="menu-feature-title">Engineering tomorrow.<br />Empowering Africa.</span>
-          <span className="menu-feature-link">Explore what’s next <span aria-hidden="true">↗</span></span>
+          <span className="menu-feature-label">ABOUT EIB GROUP</span>
+          <span className="menu-feature-title">Driving change.<br />Across industries.</span>
+          <span className="menu-feature-link">Discover EIB Group <span aria-hidden="true">↗</span></span>
         </a>
       </nav>
     </header>
