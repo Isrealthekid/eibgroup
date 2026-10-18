@@ -23,6 +23,7 @@
   list-style: none;
 }
 .company-card {
+  --company-radius: 16px;
   position: relative;
   min-width: 0;
   aspect-ratio: 1;
@@ -30,6 +31,8 @@
   align-items: center;
   justify-content: center;
   background: #f0f0f0;
+  border-radius: var(--company-radius);
+  overflow: hidden;
   transition: background-color .25s ease;
 }
 .company-logo {
@@ -44,6 +47,34 @@
 .company-logo-giga-forensics { filter: grayscale(1) brightness(.4); }
 .company-card:hover { background: #fff; }
 .company-card:hover .company-logo { filter: none; }
+.company-border {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  fill: none;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.company-border rect {
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  rx: calc(var(--company-radius) - 1px);
+  stroke: var(--company-accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 8 92;
+  animation: company-border-travel 3s linear infinite;
+  animation-play-state: paused;
+}
+.company-card:hover .company-border { opacity: 1; }
+.company-card:hover .company-border rect { animation-play-state: running; }
+@keyframes company-border-travel {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -100; }
+}
 .company-sector {
   position: absolute;
   right: 0;
@@ -72,5 +103,6 @@
   .companies { padding-top: 100px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .company-card, .company-logo { transition: none; }
+  .company-card, .company-logo, .company-border { transition: none; }
+  .company-border rect { animation: none; }
 }
