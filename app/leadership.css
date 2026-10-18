@@ -1,4 +1,5 @@
 .leadership {
+  position: relative;
   min-height: 100dvh;
   background: var(--brand-accent);
   color: #fff;
@@ -51,8 +52,10 @@
 .leadership-biography p { margin: 0 0 20px; }
 .leadership-biography p:last-child { margin-bottom: 0; }
 .leadership-portrait {
-  position: relative;
-  width: 100%;
+  position: absolute;
+  right: var(--page-gutter);
+  bottom: 20vh;
+  width: 25%;
   height: 50vh;
   min-width: 0;
   margin: 0;
@@ -73,7 +76,13 @@
   .leadership-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .leadership-content { gap: 32px; }
   .leadership h2 { font-size: clamp(32px, 7.5vw, 56px); }
-  .leadership-portrait { height: clamp(320px, 55svh, 600px); }
+  .leadership-portrait {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: clamp(320px, 55svh, 600px);
+  }
 }
 @media (max-height: 500px) and (orientation: landscape) {
   .leadership { padding-top: 104px; }
