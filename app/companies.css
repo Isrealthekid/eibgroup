@@ -41,8 +41,16 @@
 }
 .company-logo-badge { width: 42%; }
 .company-logo-giga-forensics { filter: grayscale(1) brightness(.4); }
-.company-card:hover { background: #fff; }
-.company-card:hover .company-logo { filter: none; }
+.company-link {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  cursor: pointer;
+}
+.company-link:focus-visible { outline: 3px solid var(--company-accent); outline-offset: -4px; }
+.company-card:hover, .company-card:focus-within { background: #fff; }
+.company-card:hover .company-logo, .company-card:focus-within .company-logo { filter: none; }
 .company-border {
   position: absolute;
   inset: 0;
@@ -65,8 +73,8 @@
   animation: company-border-travel 3s linear infinite;
   animation-play-state: paused;
 }
-.company-card:hover .company-border { opacity: 1; }
-.company-card:hover .company-border rect { animation-play-state: running; }
+.company-card:hover .company-border, .company-card:focus-within .company-border { opacity: 1; }
+.company-card:hover .company-border rect, .company-card:focus-within .company-border rect { animation-play-state: running; }
 @keyframes company-border-travel {
   from { stroke-dashoffset: 0; }
   to { stroke-dashoffset: -100; }
