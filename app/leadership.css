@@ -1,66 +1,25 @@
 .leadership {
-  position: relative;
   min-height: 100dvh;
-  background: var(--brand-accent);
-  color: #fff;
-  padding: clamp(128px, 16svh, 168px) var(--page-gutter) 20vh;
+  padding: clamp(128px, 16svh, 168px) var(--page-gutter) clamp(64px, 8svh, 112px);
+  background: #fff;
+  color: var(--ink);
 }
 .leadership-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  gap: clamp(32px, 5vw, 96px);
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(28px, 4vw, 80px);
+  align-items: stretch;
 }
-.leadership-content {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  min-width: 0;
-}
-.leadership-label {
-  margin: 0 0 28px;
-  font-size: clamp(18px, 1.5vw, 24px);
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -.025em;
-}
-.leadership h2 {
-  margin: 0 0 16px;
-  font-size: clamp(36px, 4.4vw, 76px);
-  font-weight: 400;
-  letter-spacing: -.05em;
-  line-height: 1.05;
-  text-wrap: balance;
-}
-.leadership-role {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-  color: rgb(255 255 255 / 75%);
-}
-.leadership-introduction {
-  margin: 0 0 24px;
-  font-size: clamp(20px, 1.65vw, 28px);
-  line-height: 1.45;
-  letter-spacing: -.025em;
-}
-.leadership-biography {
-  font-size: clamp(16px, 1.15vw, 19px);
-  line-height: 1.65;
-  color: rgb(255 255 255 / 85%);
-}
-.leadership-biography p { margin: 0 0 20px; }
-.leadership-biography p:last-child { margin-bottom: 0; }
 .leadership-portrait {
-  position: absolute;
-  right: var(--page-gutter);
-  bottom: 20vh;
-  width: 25%;
-  height: 50vh;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: clamp(440px, 62vh, 680px);
   min-width: 0;
   margin: 0;
   overflow: hidden;
-  background: #31081c;
+  border-radius: 16px;
+  background: #f0f0f0;
 }
 .leadership-portrait img {
   position: absolute;
@@ -71,18 +30,65 @@
   object-fit: cover;
   object-position: 50% 40%;
 }
+.leadership-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+  min-width: 0;
+  padding-block: 4px;
+}
+.leadership h2 {
+  margin: 0 0 28px;
+  color: var(--brand-accent);
+  font-size: clamp(30px, 3.2vw, 58px);
+  font-weight: 400;
+  letter-spacing: -.045em;
+  line-height: 1.12;
+}
+.leadership h2 span { color: #aaa7aa; }
+.leadership-name {
+  margin: 0 0 6px;
+  font-size: clamp(18px, 1.5vw, 24px);
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: -.025em;
+}
+.leadership-role {
+  margin: 0 0 24px;
+  color: #747174;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.leadership-biography {
+  max-width: 580px;
+  margin: 0;
+  color: #747174;
+  font-size: clamp(15px, 1.15vw, 18px);
+  line-height: 1.65;
+}
+.leadership-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+}
+.leadership-metrics > div { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.leadership-metrics dt { order: 1; color: #858185; font-size: 13px; line-height: 1.4; }
+.leadership-metrics dd {
+  margin: 0;
+  color: var(--brand-accent);
+  font-size: clamp(40px, 4.6vw, 80px);
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -.055em;
+}
 @media (max-width: 800px) {
   .leadership { padding-top: 112px; padding-bottom: 56px; }
   .leadership-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .leadership-content { gap: 32px; }
-  .leadership h2 { font-size: clamp(32px, 7.5vw, 56px); }
-  .leadership-portrait {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    width: 100%;
-    height: clamp(320px, 55svh, 600px);
-  }
+  .leadership-portrait { height: clamp(320px, 55svh, 560px); min-height: 0; }
+  .leadership h2 { font-size: clamp(30px, 7vw, 48px); }
+  .leadership-content { padding: 0; }
 }
 @media (max-height: 500px) and (orientation: landscape) {
   .leadership { padding-top: 104px; }
