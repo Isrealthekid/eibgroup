@@ -13,7 +13,7 @@ main{position:relative}.scroll-story{height:720svh}.stage{height:100svh;position
 .intro{pointer-events:none}
 .scroll-prompt{font-size:11px}
 footer{font-size:11px}
-:root{--brand-accent:#e31c79}
+:root{--brand-accent:#440824}
 .circle-blue{fill:var(--brand-accent)}
 .nav-brand{display:flex;align-items:center;line-height:0}
 .nav-logo{display:block;width:150px;height:auto;aspect-ratio:2925/444}

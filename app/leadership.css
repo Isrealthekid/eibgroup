@@ -1,0 +1,78 @@
+.leadership {
+  min-height: 100dvh;
+  padding: clamp(136px, 16svh, 160px) 5vw clamp(64px, 8svh, 112px);
+  background: var(--brand-accent);
+  color: #fff;
+}
+.leadership-label {
+  margin: 0 0 clamp(24px, 3vw, 48px);
+  font-size: clamp(20px, 2vw, 32px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -.035em;
+}
+.leadership-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: clamp(40px, 7vw, 136px);
+  max-width: 1600px;
+  margin-inline: auto;
+}
+.leadership-portrait {
+  width: 100%;
+  max-width: 500px;
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #31081c;
+}
+.leadership-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 567 / 751;
+  object-fit: cover;
+}
+.leadership-content { max-width: 720px; }
+.leadership h2 {
+  margin: 0 0 16px;
+  font-size: clamp(36px, 4.4vw, 76px);
+  font-weight: 400;
+  letter-spacing: -.05em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+.leadership-role {
+  margin: 0 0 clamp(28px, 3vw, 48px);
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgb(255 255 255 / 75%);
+}
+.leadership-introduction {
+  margin: 0 0 24px;
+  font-size: clamp(20px, 1.65vw, 28px);
+  line-height: 1.45;
+  letter-spacing: -.025em;
+}
+.leadership-biography {
+  font-size: clamp(16px, 1.15vw, 19px);
+  line-height: 1.65;
+  color: rgb(255 255 255 / 85%);
+}
+.leadership-biography p { margin: 0 0 20px; }
+.leadership-biography p:last-child { margin-bottom: 0; }
+@media (max-width: 900px) {
+  .leadership-grid { gap: 32px; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: start; }
+  .leadership h2 { font-size: clamp(30px, 4.4vw, 44px); }
+}
+@media (max-width: 700px) {
+  .leadership { padding-top: 112px; padding-bottom: 56px; }
+  .leadership-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .leadership-portrait { max-width: 440px; }
+  .leadership h2 { font-size: clamp(32px, 8vw, 48px); }
+  .leadership-role { margin-bottom: 28px; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .leadership { padding-top: 104px; }
+}

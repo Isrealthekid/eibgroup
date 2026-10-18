@@ -6,6 +6,7 @@ import { GlobePulse } from '@/components/ui/cobe-globe-pulse';
 import BrandLogo from '@/components/brand-logo';
 import SiteNavigation from '@/components/site-navigation';
 import CompaniesSection from '@/components/companies-section';
+import LeadershipSection from '@/components/leadership-section';
 
 const aboutCopy = 'EIB Group unites businesses across fashion, security, communications and infrastructure, driving change and shaping Africa’s future.';
 
@@ -43,6 +44,7 @@ export default function HomeExperience() {
       </div>
     </div>
     <span id="world" className="anchor-world" aria-hidden="true"></span>
+    <LeadershipSection />
     <CompaniesSection />
   </main>
   
