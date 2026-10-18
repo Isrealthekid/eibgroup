@@ -38,6 +38,11 @@
 .footer-column > a:hover { color: var(--brand-accent); text-decoration: underline; text-underline-offset: 4px; }
 .footer-bottom { border-top: 1px solid #dcd9dc; padding-top: 20px; }
 .footer-bottom p { margin: 0; color: #727074; font-size: 12px; line-height: 1.5; }
+@media (min-width: 901px) {
+  .site-footer { display: flex; min-height: 100vh; padding-top: clamp(96px, 14vh, 176px); }
+  .footer-panel { display: flex; flex-direction: column; }
+  .footer-bottom { margin-top: auto; }
+}
 @media (max-width: 900px) {
   .footer-banner { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .footer-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; }
