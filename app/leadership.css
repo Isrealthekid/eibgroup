@@ -65,11 +65,12 @@
 }
 .leadership-metrics {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(2, max-content);
+  justify-content: start;
+  gap: clamp(28px, 3vw, 40px);
   margin: 0;
 }
-.leadership-metrics > div { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.leadership-metrics > div { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .leadership-metrics dt { order: 1; color: rgb(255 255 255 / 70%); font-size: 13px; line-height: 1.4; }
 .leadership-metrics dd {
   margin: 0;

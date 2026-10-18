@@ -16,7 +16,7 @@ export default function LeadershipSection() {
           </div>
           <dl className="leadership-metrics" aria-label="EIB Group impact">
             <div><dt>Industry pillars</dt><dd>4</dd></div>
-            <div><dt>Lives impacted</dt><dd>500K+</dd></div>
+            <div><dt>Companies</dt><dd>10</dd></div>
           </dl>
         </div>
       </div>
