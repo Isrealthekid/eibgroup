@@ -30,6 +30,7 @@
   align-items: center;
   justify-content: center;
   background: #f0f0f0;
+  transition: background-color .25s ease;
 }
 .company-logo {
   display: block;
@@ -37,9 +38,12 @@
   height: 42%;
   overflow: hidden;
   filter: grayscale(1);
+  transition: filter .25s ease;
 }
 .company-logo-badge { width: 42%; }
 .company-logo-giga-forensics { filter: grayscale(1) brightness(.4); }
+.company-card:hover { background: #fff; }
+.company-card:hover .company-logo { filter: none; }
 .company-sector {
   position: absolute;
   right: 0;
@@ -66,4 +70,7 @@
 }
 @media (max-height: 500px) and (orientation: landscape) {
   .companies { padding-top: 100px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .company-card, .company-logo { transition: none; }
 }
