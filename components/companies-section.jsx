@@ -40,7 +40,7 @@ export default function CompaniesSection() {
   return (
     <section id="companies" className="companies" aria-labelledby="companies-title">
       <div className="companies-content">
-        <h2 id="companies-title">Our companies.</h2>
+        <h2 id="companies-title" className="section-heading">Our companies</h2>
         <ul className="companies-grid">
           {companies.map(company => (
             <li className="company-card" key={company.name} style={{ '--company-accent': company.accent }}>

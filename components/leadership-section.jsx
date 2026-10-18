@@ -9,7 +9,7 @@ export default function LeadershipSection() {
         </figure>
         <div className="leadership-content">
           <div className="leadership-copy">
-            <h2 id="leadership-title"><span>Leadership with vision.</span><br />Impact across Africa.</h2>
+            <h2 id="leadership-title" className="section-heading"><span>Leadership with vision.</span><br />Impact across Africa.</h2>
             <h3 className="leadership-name">Dr. Bright Echefu</h3>
             <p className="leadership-role">Chairman &amp; Chief Executive Officer</p>
             <p className="leadership-biography">With more than 15 years of experience across technology, media and healthcare, Dr. Echefu leads EIB Group with a focus on developing African talent, building enduring partnerships and creating lasting economic and social value.</p>

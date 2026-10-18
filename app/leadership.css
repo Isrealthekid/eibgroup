@@ -1,8 +1,8 @@
 .leadership {
   min-height: 100dvh;
   padding: clamp(128px, 16svh, 168px) var(--page-gutter) clamp(64px, 8svh, 112px);
-  background: #fff;
-  color: var(--ink);
+  background: var(--brand-accent);
+  color: #fff;
 }
 .leadership-grid {
   display: grid;
@@ -19,7 +19,7 @@
   margin: 0;
   overflow: hidden;
   border-radius: 16px;
-  background: #f0f0f0;
+  background: #31081c;
 }
 .leadership-portrait img {
   position: absolute;
@@ -40,13 +40,9 @@
 }
 .leadership h2 {
   margin: 0 0 28px;
-  color: var(--brand-accent);
-  font-size: clamp(30px, 3.2vw, 58px);
-  font-weight: 400;
-  letter-spacing: -.045em;
-  line-height: 1.12;
+  color: #fff;
 }
-.leadership h2 span { color: #aaa7aa; }
+.leadership h2 span { color: rgb(255 255 255 / 65%); }
 .leadership-name {
   margin: 0 0 6px;
   font-size: clamp(18px, 1.5vw, 24px);
@@ -56,14 +52,14 @@
 }
 .leadership-role {
   margin: 0 0 24px;
-  color: #747174;
+  color: rgb(255 255 255 / 75%);
   font-size: 13px;
   line-height: 1.5;
 }
 .leadership-biography {
   max-width: 580px;
   margin: 0;
-  color: #747174;
+  color: rgb(255 255 255 / 85%);
   font-size: clamp(15px, 1.15vw, 18px);
   line-height: 1.65;
 }
@@ -74,10 +70,10 @@
   margin: 0;
 }
 .leadership-metrics > div { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
-.leadership-metrics dt { order: 1; color: #858185; font-size: 13px; line-height: 1.4; }
+.leadership-metrics dt { order: 1; color: rgb(255 255 255 / 70%); font-size: 13px; line-height: 1.4; }
 .leadership-metrics dd {
   margin: 0;
-  color: var(--brand-accent);
+  color: #fff;
   font-size: clamp(40px, 4.6vw, 80px);
   line-height: 1;
   font-weight: 400;
@@ -87,7 +83,6 @@
   .leadership { padding-top: 112px; padding-bottom: 56px; }
   .leadership-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .leadership-portrait { height: clamp(320px, 55svh, 560px); min-height: 0; }
-  .leadership h2 { font-size: clamp(30px, 7vw, 48px); }
   .leadership-content { padding: 0; }
 }
 @media (max-height: 500px) and (orientation: landscape) {

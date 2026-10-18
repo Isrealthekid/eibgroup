@@ -68,9 +68,6 @@ export default function HomeExperience() {
             >
               <span>↓</span> SCROLL TO EXPLORE <span>↓</span>
             </button>
-            <div className="progress-track" aria-hidden="true">
-              <div></div>
-            </div>
           </div>
         </div>
         <span id="world" className="anchor-world" aria-hidden="true"></span>
