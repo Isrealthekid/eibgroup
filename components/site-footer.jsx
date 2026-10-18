@@ -1,4 +1,5 @@
 import logo from '@/assets/eib red.png';
+import NewsletterForm from '@/components/newsletter-form';
 
 const linkedInUrl = 'https://www.linkedin.com/company/eib-group-africa/posts/?feedView=all';
 // Add the official profile URLs here when available; empty values show an icon only.
@@ -27,12 +28,9 @@ export default function SiteFooter() {
         <div className="footer-banner">
           <div>
             <h2 className="footer-banner-title">Stay connected<br />with EIB Group.</h2>
-            <p className="footer-banner-description">News, ideas and progress from across our companies.</p>
+            <p className="footer-banner-description">Receive news and updates from across our companies.</p>
           </div>
-          <div className="footer-banner-action">
-            <p>Follow our latest updates.</p>
-            <a className="footer-banner-button" href={linkedInUrl} target="_blank" rel="noopener noreferrer">Follow us on LinkedIn <span aria-hidden="true">↗</span></a>
-          </div>
+          <NewsletterForm />
         </div>
         <div className="footer-columns">
           <div className="footer-identity">
