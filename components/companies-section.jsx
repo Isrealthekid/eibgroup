@@ -1,14 +1,14 @@
 // Names and sectors follow the subsidiary network on eibgroup.com.
 const companies = [
-  { name: 'Briech UAS', sector: 'Unmanned aerial systems' },
-  { name: 'EIB Stratoc', sector: 'Security & defence technology' },
-  { name: 'Luft', sector: 'Television & entertainment' },
-  { name: 'Briech Atlantic', sector: 'Construction & infrastructure' },
-  { name: 'Luftreiber Automobile', sector: 'Automotive & mobility' },
-  { name: 'Giga Forensics', sector: 'Digital forensics & cybersecurity' },
-  { name: 'Bright FM', sector: 'Radio & communications' },
-  { name: 'Poctova', sector: 'Clothing & textiles' },
-  { name: 'Bright Echefu Foundation', sector: 'Community & social impact' },
+  { name: 'Briech UAS', sector: 'Unmanned aerial systems', logo: 'briech-uas', width: 497, height: 131 },
+  { name: 'EIB Stratoc', sector: 'Security & defence', logo: 'eib-stratoc', width: 460, height: 225 },
+  { name: 'Luft', sector: 'Television & entertainment', logo: 'luft', width: 2737, height: 1224 },
+  { name: 'Briech Atlantic', sector: 'Construction & infrastructure', logo: 'briech-atlantic', width: 3241, height: 1065 },
+  { name: 'Luftreiber Automobile', sector: 'Automotive & mobility', logo: 'luftreiber', width: 3211, height: 1155 },
+  { name: 'Giga Forensics', sector: 'Digital forensics', logo: 'giga-forensics', width: 3125, height: 1875, viewBox: '104 725 2917 426' },
+  { name: 'Bright FM', sector: 'Radio & communications', logo: 'bright-fm', width: 1807, height: 833 },
+  { name: 'Poctova', sector: 'Clothing & textiles', logo: 'poctova', width: 3125, height: 1875, viewBox: '666 42 1793 1792', badge: true },
+  { name: 'Bright Echefu Foundation', sector: 'Community & social impact', logo: 'foundation', width: 194, height: 194, badge: true },
 ];
 
 export default function CompaniesSection() {
@@ -19,8 +19,10 @@ export default function CompaniesSection() {
         <ul className="companies-grid">
           {companies.map(company => (
             <li className="company-card" key={company.name}>
-              <h3>{company.name}</h3>
-              <p>{company.sector}</p>
+              <svg className={`company-logo company-logo-${company.logo}${company.badge ? ' company-logo-badge' : ''}`} viewBox={company.viewBox || `0 0 ${company.width} ${company.height}`} role="img" aria-label={`${company.name} logo`}>
+                <image href={`/companies/${company.logo}.png`} width={company.width} height={company.height} />
+              </svg>
+              <p className="company-sector">{company.sector}</p>
             </li>
           ))}
         </ul>
