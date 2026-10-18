@@ -3,7 +3,7 @@
   min-height: 100dvh;
   background: #fff;
   color: var(--ink);
-  padding: clamp(112px, 16svh, 144px) 5vw 5vw;
+  padding: clamp(112px, 16svh, 144px) var(--page-gutter) var(--page-gutter);
 }
 .companies-content { width: 100%; }
 .companies h2 {

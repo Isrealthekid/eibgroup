@@ -1,6 +1,6 @@
 /* A wide, editorial paragraph starts below the floating navigation. */
 .purpose { background: #fff; align-items: flex-start; justify-content: flex-start; }
-.purpose-content { width: calc(100% - clamp(40px, 5.5vw, 112px)); max-width: none; margin: 0 auto; padding: clamp(156px, 28svh, 210px) 0 100px; }
+.purpose-content { width: calc(100% - 2 * var(--page-gutter)); max-width: none; margin: 0 auto; padding: clamp(156px, 28svh, 210px) 0 100px; }
 .purpose h2 { margin: 0; max-width: none; font-size: clamp(28px, 4.7vw, 96px); line-height: 1.2; font-weight: 400; letter-spacing: -.045em; text-wrap: pretty; }
 .purpose .contact-link { margin-top: 36px; font-size: clamp(15px, 1.1vw, 20px); }
 @media (max-width: 700px) {

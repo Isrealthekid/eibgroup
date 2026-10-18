@@ -2,19 +2,19 @@
   min-height: 100dvh;
   background: var(--brand-accent);
   color: #fff;
+  padding: clamp(128px, 16svh, 168px) var(--page-gutter) 20vh;
 }
 .leadership-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  min-height: 100dvh;
+  align-items: start;
+  gap: clamp(32px, 5vw, 96px);
 }
 .leadership-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: clamp(40px, 6svh, 88px);
+  gap: 40px;
   min-width: 0;
-  padding: clamp(128px, 16svh, 168px) clamp(24px, 3.2vw, 64px) clamp(40px, 5svh, 80px);
 }
 .leadership-label {
   margin: 0 0 28px;
@@ -53,6 +53,7 @@
 .leadership-portrait {
   position: relative;
   width: 100%;
+  height: 50vh;
   min-width: 0;
   margin: 0;
   overflow: hidden;
@@ -68,11 +69,12 @@
   object-position: 50% 40%;
 }
 @media (max-width: 800px) {
-  .leadership-grid { grid-template-columns: minmax(0, 1fr); }
-  .leadership-content { padding: 112px 6vw 48px; gap: 48px; }
+  .leadership { padding-top: 112px; padding-bottom: 56px; }
+  .leadership-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .leadership-content { gap: 32px; }
   .leadership h2 { font-size: clamp(32px, 7.5vw, 56px); }
-  .leadership-portrait { min-height: 60svh; aspect-ratio: 4 / 5; }
+  .leadership-portrait { height: clamp(320px, 55svh, 600px); }
 }
 @media (max-height: 500px) and (orientation: landscape) {
-  .leadership-content { padding-top: 104px; }
+  .leadership { padding-top: 104px; }
 }
