@@ -7,6 +7,7 @@ import BrandLogo from '@/components/brand-logo';
 import SiteNavigation from '@/components/site-navigation';
 import CompaniesSection from '@/components/companies-section';
 import LeadershipSection from '@/components/leadership-section';
+import SiteFooter from '@/components/site-footer';
 
 const aboutCopy = 'EIB Group unites businesses across fashion, security, communications and infrastructure, driving change and shaping Africa’s future.';
 
@@ -74,6 +75,7 @@ export default function HomeExperience() {
         <LeadershipSection />
         <CompaniesSection />
       </main>
+      <SiteFooter />
 
       <noscript>
         <style>

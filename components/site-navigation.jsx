@@ -45,7 +45,7 @@ export default function SiteNavigation() {
           <a href="#about">About</a>
           <a href="#companies">Industries</a>
           <a href="https://www.brightechefufoundation.org" target="_blank" rel="noopener noreferrer" aria-label="Our Foundation: Bright Echefu Foundation (opens in a new tab)">Our Foundation</a>
-          <a href="mailto:info@eibgroup.com">Contact</a>
+          <a href="#contact">Contact</a>
         </div>
         <a className="menu-feature" href="#about" onClick={() => setIsOpen(false)}>
           <span className="menu-feature-label">ABOUT EIB GROUP</span>
