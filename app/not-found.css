@@ -1,0 +1,32 @@
+.not-found {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(28px, 5vh, 56px) var(--page-gutter);
+  background: var(--brand-accent, #440824);
+  color: #fff;
+}
+.not-found-brand { align-self: flex-start; display: block; }
+.not-found-logo { display: block; width: clamp(120px, 12vw, 180px); height: auto; }
+.not-found-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(36px, 7vh, 80px) 0;
+}
+.not-found-code {
+  margin: 0 0 24px;
+  font-size: clamp(120px, min(29vw, 40svh), 420px);
+  font-weight: 500;
+  line-height: .8;
+  letter-spacing: -.075em;
+}
+.not-found h1 { margin: 0; font-size: clamp(28px, 3.5vw, 56px); font-weight: 400; line-height: 1.15; letter-spacing: -.045em; }
+.not-found-description { max-width: 420px; margin: 20px 0 32px; font-size: clamp(16px, 1.3vw, 20px); line-height: 1.5; }
+.not-found-home { display: inline-flex; align-items: center; gap: 40px; padding: 12px 0; border-bottom: 1px solid #fff; font-size: 16px; }
+.not-found-home:hover { text-decoration: underline; text-underline-offset: 5px; }
+.not-found a:focus-visible { outline: 2px solid #fff; outline-offset: 8px; }
