@@ -1,15 +1,15 @@
 /* A wide, editorial paragraph starts below the floating navigation. */
 .purpose { background: #fff; align-items: flex-start; justify-content: flex-start; }
-.purpose-content { width: calc(100% - 2 * var(--page-gutter)); max-width: none; margin: 0 auto; padding: clamp(156px, 28svh, 210px) 0 100px; }
-.purpose h2 { margin: 0; max-width: none; font-size: clamp(28px, 4.7vw, 96px); line-height: 1.2; font-weight: 400; letter-spacing: -.045em; text-wrap: pretty; }
-.purpose .contact-link { margin-top: 36px; font-size: clamp(15px, 1.1vw, 20px); }
-@media (max-width: 700px) {
-  .purpose-content { padding-top: 140px; padding-bottom: 90px; }
-  .purpose h2 { font-size: clamp(28px, 7.5vw, 46px); line-height: 1.2; }
-  .purpose .contact-link { margin-top: 28px; }
+.purpose-content { width: calc(100% - 2 * var(--page-gutter)); max-width: none; margin: 0 auto; padding: clamp(9.75rem, 28svh, 13.125rem) 0 6.25rem; }
+.purpose h2 { margin: 0; max-width: none; font-size: clamp(1.75rem, 4.7vw, 6rem); line-height: 1.2; font-weight: 400; letter-spacing: -.045em; text-wrap: pretty; }
+.purpose .contact-link { margin-top: 2.25rem; font-size: clamp(0.9375rem, 1.1vw, 1.25rem); }
+@media (max-width: 43.75em) {
+  .purpose-content { padding-top: 8.75rem; padding-bottom: 5.625rem; }
+  .purpose h2 { font-size: clamp(1.75rem, 7.5vw, 2.875rem); line-height: 1.2; }
+  .purpose .contact-link { margin-top: 1.75rem; }
 }
-@media (max-height: 500px) and (orientation: landscape) {
-  .purpose-content { padding-top: 110px; padding-bottom: 60px; }
-  .purpose h2 { font-size: clamp(26px, 4.7vw, 40px); line-height: 1.12; }
-  .purpose .contact-link { margin-top: 20px; padding: 6px 0; }
+@media (max-height: 31.25em) and (orientation: landscape) {
+  .purpose-content { padding-top: 6.875rem; padding-bottom: 3.75rem; }
+  .purpose h2 { font-size: clamp(1.625rem, 4.7vw, 2.5rem); line-height: 1.12; }
+  .purpose .contact-link { margin-top: 1.25rem; padding: 0.375rem 0; }
 }

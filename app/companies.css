@@ -3,23 +3,23 @@
   min-height: 100dvh;
   background: #fff;
   color: var(--ink);
-  padding: clamp(112px, 16svh, 144px) var(--page-gutter) var(--page-gutter);
+  padding: clamp(7rem, 16svh, 9rem) var(--page-gutter) var(--page-gutter);
 }
 .companies-content { width: 100%; }
 .companies h2 {
-  margin: 0 0 clamp(24px, 3vw, 48px);
+  margin: 0 0 clamp(1.5rem, 3vw, 3rem);
   text-align: left;
 }
 .companies-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 4px;
+  gap: 0.25rem;
   padding: 0;
   margin: 0;
   list-style: none;
 }
 .company-card {
-  --company-radius: 16px;
+  --company-radius: 1rem;
   position: relative;
   min-width: 0;
   aspect-ratio: 1;
@@ -48,7 +48,7 @@
   border-radius: inherit;
   cursor: pointer;
 }
-.company-link:focus-visible { outline: 3px solid var(--company-accent); outline-offset: -4px; }
+.company-link:focus-visible { outline: 0.1875rem solid var(--company-accent); outline-offset: -0.25rem; }
 .company-card:hover, .company-card:focus-within { background: #fff; }
 .company-card:hover .company-logo, .company-card:focus-within .company-logo { filter: none; }
 .company-border {
@@ -79,18 +79,18 @@
   from { stroke-dashoffset: 0; }
   to { stroke-dashoffset: -100; }
 }
-@media (max-width: 1100px) {
+@media (max-width: 68.75em) {
   .companies-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
-@media (max-width: 700px) {
-  .companies { padding-top: 104px; padding-bottom: 32px; }
+@media (max-width: 43.75em) {
+  .companies { padding-top: 6.5rem; padding-bottom: 2rem; }
   .companies-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-@media (max-width: 359px) {
+@media (max-width: 22.4375em) {
   .companies-grid { grid-template-columns: minmax(0, 1fr); }
 }
-@media (max-height: 500px) and (orientation: landscape) {
-  .companies { padding-top: 100px; }
+@media (max-height: 31.25em) and (orientation: landscape) {
+  .companies { padding-top: 6.25rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .company-card, .company-logo, .company-border { transition: none; }
