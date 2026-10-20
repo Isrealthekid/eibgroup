@@ -8,7 +8,7 @@
   .purpose h2 { font-size: clamp(1.75rem, 7.5vw, 2.875rem); line-height: 1.2; }
   .purpose .contact-link { margin-top: 1.75rem; }
 }
-@media (max-height: 31.25em) and (orientation: landscape) {
+@media (max-height: 31.25em) and (max-width: 63.99em) and (orientation: landscape) {
   .purpose-content { padding-top: 6.875rem; padding-bottom: 3.75rem; }
   .purpose h2 { font-size: clamp(1.625rem, 4.7vw, 2.5rem); line-height: 1.12; }
   .purpose .contact-link { margin-top: 1.25rem; padding: 0.375rem 0; }

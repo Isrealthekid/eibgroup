@@ -79,7 +79,7 @@
   from { stroke-dashoffset: 0; }
   to { stroke-dashoffset: -100; }
 }
-@media (max-width: 68.75em) {
+@media (max-width: 64em) {
   .companies-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 43.75em) {
@@ -89,7 +89,7 @@
 @media (max-width: 22.4375em) {
   .companies-grid { grid-template-columns: minmax(0, 1fr); }
 }
-@media (max-height: 31.25em) and (orientation: landscape) {
+@media (max-height: 31.25em) and (max-width: 63.99em) and (orientation: landscape) {
   .companies { padding-top: 6.25rem; }
 }
 @media (prefers-reduced-motion: reduce) {

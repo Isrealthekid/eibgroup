@@ -86,6 +86,6 @@
   .leadership-portrait { height: clamp(20rem, 55svh, 35rem); min-height: 0; }
   .leadership-content { padding: 0; }
 }
-@media (max-height: 31.25em) and (orientation: landscape) {
+@media (max-height: 31.25em) and (max-width: 63.99em) and (orientation: landscape) {
   .leadership { padding-top: 6.5rem; }
 }

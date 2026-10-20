@@ -3,10 +3,11 @@
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);
 
-/* One proportional desktop scale; mobile retains the reader's default text size. */
+/* Keep desktop proportions even when zooming out expands the CSS viewport.
+   A fixed rem ceiling would make assets shrink relative to that viewport. */
 :root { font-size: 100%; }
 @media (min-width: 64em) {
-  :root { font-size: clamp(100%, 1.25vw, 300%); }
+  :root { font-size: 1.25vw; }
 }
 :root{color-scheme:dark;--ink:#0d0d0f;--paper:#f8f8f4;--blue:#3156ff;--muted:#77777b;--globe-size:min(44vw,65svh,60rem);font-family:Arial,Helvetica,sans-serif;font-synthesis:none}
 *{box-sizing:border-box}html{margin:0;scrollbar-width:thin;scrollbar-color:#535357 var(--ink)}body{margin:0;background:var(--ink);color:var(--paper)}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}button,a{-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible{outline:2px solid #6f89ff;outline-offset:0.4375rem}.skip-link{position:fixed;top:0.75rem;left:0.75rem;z-index:100;padding:0.75rem;background:var(--blue);transform:translateY(-160%)}.skip-link:focus{transform:none}
@@ -57,7 +58,7 @@ main{position:relative}.scroll-story{height:720svh}.stage{height:100svh;position
   .purpose-statement{font-size:1rem;line-height:1.4;margin:0.625rem 0;max-width:28.75rem}
   .contact-link{margin-top:0;padding:0.375rem 0;font-size:0.9375rem}
 }
-@media(max-height: 31.25em) and (orientation:landscape){
+@media(max-height: 31.25em) and (max-width:63.99em) and (orientation:landscape){
   :root{--globe-size:58svh}.world-copy{font-size:clamp(1.375rem,3.5vw,2.5rem)}
   .intro-caption{top:calc(50% + 16svh);font-size:0.5625rem}.purpose-content{width:82vw}
   .purpose-statement{max-width:none;font-size:0.9375rem}.eyebrow{margin-bottom:0.625rem}h2{font-size:8svh;margin-bottom:0.625rem}
