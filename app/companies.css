@@ -12,7 +12,7 @@
 }
 .companies-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
   padding: 0;
   margin: 0;
@@ -23,14 +23,12 @@
   position: relative;
   width: 100%;
   min-width: 0;
-  min-height: 12.75rem;
-  aspect-ratio: 3 / 2;
-  display: flex;
-  flex-direction: column;
+  min-height: 9rem;
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
   align-items: center;
-  justify-content: space-between;
-  gap: 1.25rem;
-  padding: 1.5rem;
+  gap: 1rem;
+  padding: 1.25rem;
   background: #f0f0f0;
   border-radius: var(--company-radius);
   overflow: hidden;
@@ -46,7 +44,7 @@
 }
 .company-logo {
   display: block;
-  width: 76%;
+  width: 100%;
   height: 100%;
   overflow: hidden;
   filter: grayscale(1);
@@ -56,12 +54,12 @@
 .company-logo-giga-forensics { filter: grayscale(1) brightness(.4); }
 .company-copy {
   width: 100%;
-  max-width: 32ch;
+  min-width: 0;
   margin: 0;
   color: #626267;
   font-size: .875rem;
   line-height: 1.5;
-  text-align: center;
+  text-align: right;
 }
 .company-link {
   position: absolute;
@@ -106,18 +104,14 @@
   to { stroke-dashoffset: -100; }
 }
 @media (max-width: 64em) {
-  .companies-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (max-width: 50em) {
   .companies-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 43.75em) {
   .companies { padding-top: 6.5rem; padding-bottom: 2rem; }
-  .companies-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 37.5em) {
   .companies-grid { grid-template-columns: minmax(0, 1fr); }
-  .company-card { aspect-ratio: auto; }
+  .company-card { padding: 1rem; }
 }
 @media (max-height: 31.25em) and (max-width: 63.99em) and (orientation: landscape) {
   .companies { padding-top: 6.25rem; }
