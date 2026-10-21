@@ -1,14 +1,6 @@
 import logo from '@/assets/eib red.png';
 import NewsletterForm from '@/components/newsletter-form';
-
-const linkedInUrl = 'https://www.linkedin.com/company/eib-group-africa/posts/?feedView=all';
-// Add the official profile URLs here when available; empty values show an icon only.
-const socials = [
-  { name: 'LinkedIn', icon: 'linkedin', href: linkedInUrl },
-  { name: 'Instagram', icon: 'instagram', href: '' },
-  { name: 'Facebook', icon: 'facebook', href: '' },
-  { name: 'X', icon: 'x', href: '' },
-];
+import { contactEmails, socialProfiles } from '@/lib/site-contact';
 
 function SocialIcon({ name }) {
   return (
@@ -21,7 +13,7 @@ function SocialIcon({ name }) {
   );
 }
 
-export default function SiteFooter({ isHome = true }) {
+export default function SiteFooter({ isHome = true, currentPage }) {
   const homeSection = hash => isHome ? hash : `/${hash}`;
   return (
     <footer id="contact" className="site-footer" aria-label="EIB Group contact and links">
@@ -40,7 +32,7 @@ export default function SiteFooter({ isHome = true }) {
             </a>
             <p className="footer-tagline">A world of possibility.</p>
             <div className="footer-socials" aria-label="EIB Group social profiles">
-              {socials.map(social => social.href ? (
+              {socialProfiles.map(social => social.href ? (
                 <a key={social.icon} className="footer-social-icon" href={social.href} target="_blank" rel="noopener noreferrer" aria-label={`EIB Group on ${social.name} (opens in a new tab)`}><SocialIcon name={social.icon} /></a>
               ) : (
                 <span key={social.icon} className="footer-social-icon is-placeholder" role="img" aria-label={`${social.name} (profile link to be added)`} title={`${social.name} link to be added`}><SocialIcon name={social.icon} /></span>
@@ -52,13 +44,13 @@ export default function SiteFooter({ isHome = true }) {
             <a href={homeSection('#about')}>About</a>
             <a href={homeSection('#leadership')}>Leadership</a>
             <a href={homeSection('#companies')}>Our companies</a>
-            <a href="/our-team" aria-current={isHome ? undefined : 'page'}>Our team</a>
+            <a href="/our-team" aria-current={currentPage === 'team' ? 'page' : undefined}>Our team</a>
+            <a href="/contact" aria-current={currentPage === 'contact' ? 'page' : undefined}>Contact</a>
             <a href="https://www.brightechefufoundation.org" target="_blank" rel="noopener noreferrer">Our foundation <span aria-hidden="true">↗</span></a>
           </nav>
           <div className="footer-column footer-contact">
             <h2 className="footer-heading">Contact</h2>
-            <a href="mailto:eibgroupmarketing@gmail.com">eibgroupmarketing@gmail.com</a>
-            <a href="mailto:marketing@eibgroup.com">marketing@eibgroup.com</a>
+            {contactEmails.map(email => <a key={email.address} href={`mailto:${email.address}`}>{email.address}</a>)}
           </div>
         </div>
         <div className="footer-bottom"><p>© {new Date().getFullYear()} EIB Group</p></div>

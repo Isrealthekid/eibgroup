@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import BrandLogo from '@/components/brand-logo';
 
-export default function SiteNavigation({ isHome = true }) {
+export default function SiteNavigation({ isHome = true, currentPage }) {
   const [isOpen, setIsOpen] = useState(false);
   const headerRef = useRef(null);
   const buttonRef = useRef(null);
@@ -13,10 +13,13 @@ export default function SiteNavigation({ isHome = true }) {
     const header = headerRef.current;
     if (!header) return;
     function updateTone() {
-      const banner = document.querySelector('.footer-banner');
+      const darkSurfaces = document.querySelectorAll('.footer-banner, [data-navigation-tone="dark"]');
       const center = header.getBoundingClientRect().top + header.querySelector('.nav-top').clientHeight / 2;
-      const bounds = banner?.getBoundingClientRect();
-      const tone = bounds && bounds.top <= center && bounds.bottom > center ? 'dark' : 'light';
+      const isDark = Array.from(darkSurfaces).some(surface => {
+        const bounds = surface.getBoundingClientRect();
+        return bounds.top <= center && bounds.bottom > center;
+      });
+      const tone = isDark ? 'dark' : 'light';
       if (header.dataset.tone !== tone) header.dataset.tone = tone;
     }
     updateTone();
@@ -66,9 +69,9 @@ export default function SiteNavigation({ isHome = true }) {
         <div className="menu-links" onClick={() => setIsOpen(false)}>
           <a href={homeSection('#about')}>About</a>
           <a href={homeSection('#companies')}>Industries</a>
-          <a href="/our-team" aria-current={isHome ? undefined : 'page'}>Our team</a>
+          <a href="/our-team" aria-current={currentPage === 'team' ? 'page' : undefined}>Our team</a>
           <a href="https://www.brightechefufoundation.org" target="_blank" rel="noopener noreferrer" aria-label="Our Foundation: Bright Echefu Foundation (opens in a new tab)">Our Foundation</a>
-          <a href="#contact">Contact</a>
+          <a href="/contact" aria-current={currentPage === 'contact' ? 'page' : undefined}>Contact</a>
         </div>
         <a className="menu-feature" href={homeSection('#about')} onClick={() => setIsOpen(false)}>
           <span className="menu-feature-label">ABOUT EIB GROUP</span>

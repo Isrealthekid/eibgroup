@@ -24,7 +24,7 @@ export default function OurTeamPage() {
   return (
     <>
       <a className="skip-link" href="#team-content">Skip to our team</a>
-      <SiteNavigation isHome={false} />
+      <SiteNavigation isHome={false} currentPage="team" />
       <main id="team-content" className="team-page" tabIndex={-1}>
         <header className="team-heading">
           <h1 className="team-title">Our team</h1>
@@ -45,7 +45,7 @@ export default function OurTeamPage() {
           ))}
         </ul>
       </main>
-      <SiteFooter isHome={false} />
+      <SiteFooter isHome={false} currentPage="team" />
     </>
   );
 }
