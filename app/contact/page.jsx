@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import SiteNavigation from '@/components/site-navigation';
-import SiteFooter from '@/components/site-footer';
 import { contactEmails, socialProfiles } from '@/lib/site-contact';
 import officeImage from '@/assets/contact/office-workspace.jpg';
 import './contact.css';
@@ -50,7 +49,6 @@ export default function ContactPage() {
           <Image src={officeImage} alt="A collaborative workspace with people working at shared desks" sizes="100vw" priority />
         </div>
       </main>
-      <SiteFooter isHome={false} currentPage="contact" />
     </>
   );
 }
