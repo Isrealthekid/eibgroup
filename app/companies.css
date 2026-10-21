@@ -6,10 +6,12 @@
   padding: clamp(7rem, 16svh, 9rem) var(--page-gutter) var(--page-gutter);
 }
 .companies-content { width: 100%; }
+.companies-heading { margin-bottom: clamp(1.5rem, 3vw, 3rem); }
 .companies h2 {
-  margin: 0 0 clamp(1.5rem, 3vw, 3rem);
+  margin: 0 0 .75rem;
   text-align: left;
 }
+.companies-introduction { margin: 0; color: #626267; font-size: 1rem; line-height: 1.5; }
 .companies-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -23,12 +25,12 @@
   position: relative;
   width: 100%;
   min-width: 0;
-  min-height: 9rem;
+  min-height: 10rem;
   display: grid;
-  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
-  align-items: center;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  align-items: start;
   gap: 1rem;
-  padding: 1.25rem;
+  padding: 1.5rem;
   background: #f0f0f0;
   border-radius: var(--company-radius);
   overflow: hidden;
@@ -39,8 +41,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 3.75rem;
-  flex: none;
+  height: 4rem;
 }
 .company-logo {
   display: block;
@@ -50,16 +51,19 @@
   filter: grayscale(1);
   transition: filter .25s ease;
 }
-.company-logo-badge { width: 42%; }
+.company-logo-badge { width: 100%; }
 .company-logo-giga-forensics { filter: grayscale(1) brightness(.4); }
+.company-details { min-width: 0; text-align: left; }
+.company-name { margin: 0 0 .375rem; color: var(--ink); font-size: 1.0625rem; font-weight: 600; line-height: 1.3; letter-spacing: -.02em; }
+.company-sector { margin: 0 0 .5rem; color: var(--brand-accent); font-size: .6875rem; line-height: 1.45; }
 .company-copy {
   width: 100%;
   min-width: 0;
   margin: 0;
   color: #626267;
-  font-size: .875rem;
+  font-size: .8125rem;
   line-height: 1.5;
-  text-align: right;
+  text-align: left;
 }
 .company-link {
   position: absolute;
@@ -103,15 +107,16 @@
   from { stroke-dashoffset: 0; }
   to { stroke-dashoffset: -100; }
 }
-@media (max-width: 64em) {
+@media (max-width: 63.99em) {
   .companies-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 43.75em) {
   .companies { padding-top: 6.5rem; padding-bottom: 2rem; }
 }
-@media (max-width: 37.5em) {
+@media (max-width: 47.99em) {
   .companies-grid { grid-template-columns: minmax(0, 1fr); }
-  .company-card { padding: 1rem; }
+  .company-card { grid-template-columns: 3.5rem minmax(0, 1fr); gap: .75rem; padding: 1rem; }
+  .company-identity { height: 3.5rem; }
 }
 @media (max-height: 31.25em) and (max-width: 63.99em) and (orientation: landscape) {
   .companies { padding-top: 6.25rem; }
