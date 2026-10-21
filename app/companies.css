@@ -1,4 +1,4 @@
-/* Square portfolio tiles; entry animation remains controlled by scroll-scene. */
+/* Compact portfolio cards; entry animation remains controlled by scroll-scene. */
 .companies {
   min-height: 100dvh;
   background: #fff;
@@ -13,7 +13,7 @@
 .companies-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.25rem;
+  gap: 0.75rem;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -21,26 +21,48 @@
 .company-card {
   --company-radius: 1rem;
   position: relative;
+  width: 100%;
   min-width: 0;
-  aspect-ratio: 1;
+  min-height: 12.75rem;
+  aspect-ratio: 3 / 2;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.5rem;
   background: #f0f0f0;
   border-radius: var(--company-radius);
   overflow: hidden;
-  transition: background-color .25s ease;
+  transition: background-color .25s ease, box-shadow .25s ease;
+}
+.company-identity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 3.75rem;
+  flex: none;
 }
 .company-logo {
   display: block;
-  width: 62%;
-  height: 42%;
+  width: 76%;
+  height: 100%;
   overflow: hidden;
   filter: grayscale(1);
   transition: filter .25s ease;
 }
 .company-logo-badge { width: 42%; }
 .company-logo-giga-forensics { filter: grayscale(1) brightness(.4); }
+.company-copy {
+  width: 100%;
+  max-width: 32ch;
+  margin: 0;
+  color: #626267;
+  font-size: .875rem;
+  line-height: 1.5;
+  text-align: center;
+}
 .company-link {
   position: absolute;
   inset: 0;
@@ -49,7 +71,11 @@
   cursor: pointer;
 }
 .company-link:focus-visible { outline: 0.1875rem solid var(--company-accent); outline-offset: -0.25rem; }
-.company-card:hover, .company-card:focus-within { background: #fff; }
+.company-card:hover, .company-card:focus-within {
+  z-index: 1;
+  background: #fff;
+  box-shadow: 0 .5rem 1.75rem rgb(13 13 15 / 10%);
+}
 .company-card:hover .company-logo, .company-card:focus-within .company-logo { filter: none; }
 .company-border {
   position: absolute;
@@ -82,12 +108,16 @@
 @media (max-width: 64em) {
   .companies-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+@media (max-width: 50em) {
+  .companies-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 43.75em) {
   .companies { padding-top: 6.5rem; padding-bottom: 2rem; }
   .companies-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-@media (max-width: 22.4375em) {
+@media (max-width: 37.5em) {
   .companies-grid { grid-template-columns: minmax(0, 1fr); }
+  .company-card { aspect-ratio: auto; }
 }
 @media (max-height: 31.25em) and (max-width: 63.99em) and (orientation: landscape) {
   .companies { padding-top: 6.25rem; }
