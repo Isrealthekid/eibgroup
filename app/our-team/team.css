@@ -1,0 +1,32 @@
+.team-page {
+  min-height: 100svh;
+  padding: clamp(9rem, 20svh, 12rem) var(--page-gutter) var(--page-gutter);
+  background: #fff;
+  color: var(--ink);
+}
+.team-heading { margin-bottom: clamp(2rem, 4vw, 4rem); }
+.team-title { margin: 0; font-size: clamp(3rem, 5vw, 6rem); line-height: 1.08; letter-spacing: -.05em; font-weight: 400; }
+.team-introduction { margin: 1rem 0 0; font-size: 1.0625rem; line-height: 1.5; color: #626267; }
+.team-preview-note { margin: .75rem 0 0; font-size: .75rem; line-height: 1.5; color: #727074; }
+.team-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem 1.5rem; margin: 0; padding: 0; list-style: none; }
+.team-member { min-width: 0; }
+.team-portrait {
+  --company-accent: var(--brand-accent);
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 0;
+  background: #f0f0f0;
+  transition: box-shadow .3s ease;
+}
+.team-member:hover .team-portrait { box-shadow: 0 .5rem 1.75rem rgb(13 13 15 / 10%); }
+.team-member:hover .company-border { opacity: 1; }
+.team-member:hover .company-border rect { animation-play-state: running; }
+.team-name { margin: 1.25rem 0 .5rem; font-size: 1.25rem; line-height: 1.3; letter-spacing: -.025em; font-weight: 500; }
+.team-role { margin: 0; color: var(--brand-accent); font-size: .6875rem; line-height: 1.5; letter-spacing: .08em; text-transform: uppercase; }
+@media (max-width: 63.99em) { .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 37.5em) {
+  .team-page { padding-top: 8rem; padding-bottom: 3rem; }
+  .team-grid { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+}
+@media (prefers-reduced-motion: reduce) { .team-portrait { transition: none; } }

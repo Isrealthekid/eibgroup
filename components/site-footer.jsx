@@ -21,7 +21,8 @@ function SocialIcon({ name }) {
   );
 }
 
-export default function SiteFooter() {
+export default function SiteFooter({ isHome = true }) {
+  const homeSection = hash => isHome ? hash : `/${hash}`;
   return (
     <footer id="contact" className="site-footer" aria-label="EIB Group contact and links">
       <div className="footer-panel">
@@ -34,7 +35,7 @@ export default function SiteFooter() {
         </div>
         <div className="footer-columns">
           <div className="footer-identity">
-            <a href="#home" className="footer-brand" aria-label="EIB Group home">
+            <a href={isHome ? '#home' : '/'} className="footer-brand" aria-label="EIB Group home">
               <svg viewBox="15 22 1180 176" aria-hidden="true" focusable="false"><image href={logo.src} width="1208" height="228" /></svg>
             </a>
             <p className="footer-tagline">A world of possibility.</p>
@@ -48,9 +49,10 @@ export default function SiteFooter() {
           </div>
           <nav className="footer-column footer-links" aria-labelledby="footer-links-title">
             <h2 id="footer-links-title" className="footer-heading">Quick links</h2>
-            <a href="#about">About</a>
-            <a href="#leadership">Leadership</a>
-            <a href="#companies">Our companies</a>
+            <a href={homeSection('#about')}>About</a>
+            <a href={homeSection('#leadership')}>Leadership</a>
+            <a href={homeSection('#companies')}>Our companies</a>
+            <a href="/our-team" aria-current={isHome ? undefined : 'page'}>Our team</a>
             <a href="https://www.brightechefufoundation.org" target="_blank" rel="noopener noreferrer">Our foundation <span aria-hidden="true">↗</span></a>
           </nav>
           <div className="footer-column footer-contact">

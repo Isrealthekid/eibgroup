@@ -21,7 +21,7 @@
   list-style: none;
 }
 .company-card {
-  --company-radius: 1rem;
+  --company-radius: 0;
   position: relative;
   width: 100%;
   min-width: 0;
@@ -88,7 +88,7 @@
 .company-border rect {
   width: calc(100% - 2px);
   height: calc(100% - 2px);
-  rx: calc(var(--company-radius) - 1px);
+  rx: 0;
   stroke: var(--company-accent);
   stroke-width: 2;
   stroke-linecap: round;

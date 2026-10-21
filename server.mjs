@@ -3,6 +3,29 @@ import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 // Serve Next.js's static export after npm run build.
-const root=fileURLToPath(new URL('./out/',import.meta.url));
+const root=path.resolve(fileURLToPath(new URL('./out/',import.meta.url)));
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.json':'application/json','.txt':'text/plain; charset=utf-8'};
-createServer(async(req,res)=>{try{const pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);const file=path.resolve(root,'.'+(pathname==='/'?'/index.html':pathname));if(!file.startsWith(root)){res.writeHead(403);res.end();return;}const body=await readFile(file);res.writeHead(200,{'Content-Type':mime[path.extname(file)]||'application/octet-stream','Cache-Control':'no-cache'});res.end(body);}catch{try{const body=await readFile(path.join(root,'404.html'));res.writeHead(404,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-cache'});res.end(body);}catch{res.writeHead(404);res.end('Not found');}}}).listen(4173,'127.0.0.1',()=>console.log('Local: http://localhost:4173'));
+async function sendFile(res, file, status = 200) {
+  const body = await readFile(file);
+  res.writeHead(status, { 'Content-Type': mime[path.extname(file)] || 'application/octet-stream', 'Cache-Control': 'no-cache' });
+  res.end(body);
+}
+
+createServer(async (req, res) => {
+  try {
+    const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+    const file = path.resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));
+    if (file !== root && !file.startsWith(root + path.sep)) {
+      res.writeHead(403);
+      res.end();
+      return;
+    }
+    // Next.js exports /our-team as our-team.html (or an index in a directory).
+    const candidates = path.extname(file) ? [file] : [file, `${file}.html`, path.join(file, 'index.html')];
+    for (const candidate of candidates) {
+      try { await sendFile(res, candidate); return; } catch {}
+    }
+  } catch {}
+  try { await sendFile(res, path.join(root, '404.html'), 404); }
+  catch { res.writeHead(404); res.end('Not found'); }
+}).listen(4173, '127.0.0.1', () => console.log('Local: http://localhost:4173'));

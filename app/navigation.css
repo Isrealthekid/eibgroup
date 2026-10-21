@@ -48,7 +48,7 @@
 .navigation[data-tone=light] .nav-logo, .navigation[data-tone=light] .nav-symbol { filter: brightness(0); }
 .navigation.is-open {
   width: min(45rem, calc(100vw - 2.5rem));
-  height: 19.5rem;
+  height: 22rem;
   max-height: calc(100svh - 5.5rem);
   overflow-y: auto;
   border-radius: 1rem;
@@ -104,7 +104,7 @@
 }
 @media (max-width: 37.5em) {
   .navigation { width: 15.5rem; height: 3.5rem; top: 1.25rem; }
-  .navigation.is-open { width: calc(100vw - 2rem); height: 24.375rem; max-height: calc(100svh - 2.5rem); overflow-y: auto; }
+  .navigation.is-open { width: calc(100vw - 2rem); height: 26.75rem; max-height: calc(100svh - 2.5rem); overflow-y: auto; }
   .nav-symbol { left: 1.125rem; }
   .menu { top: 4rem; grid-template-columns: 1fr; gap: 1.25rem; padding: 1rem 1.25rem 1.25rem; }
   .menu-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem 1.125rem; }
