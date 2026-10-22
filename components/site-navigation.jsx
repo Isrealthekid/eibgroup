@@ -67,13 +67,12 @@ export default function SiteNavigation({ isHome = true, currentPage }) {
       </div>
       <nav id="site-menu" className="menu" aria-label="Main navigation" aria-hidden={!isOpen} inert={!isOpen}>
         <div className="menu-links" onClick={() => setIsOpen(false)}>
-          <a href={homeSection('#about')}>About</a>
+          <a href="/about" aria-current={currentPage === 'about' ? 'page' : undefined}>About</a>
           <a href={homeSection('#companies')}>Industries</a>
-          <a href="/our-team" aria-current={currentPage === 'team' ? 'page' : undefined}>Our team</a>
           <a href="https://www.brightechefufoundation.org" target="_blank" rel="noopener noreferrer" aria-label="Our Foundation: Bright Echefu Foundation (opens in a new tab)">Our Foundation</a>
           <a href="/contact" aria-current={currentPage === 'contact' ? 'page' : undefined}>Contact</a>
         </div>
-        <a className="menu-feature" href={homeSection('#about')} onClick={() => setIsOpen(false)}>
+        <a className="menu-feature" href="/about" onClick={() => setIsOpen(false)}>
           <span className="menu-feature-label">ABOUT EIB GROUP</span>
           <span className="menu-feature-title">Driving change.<br />Across industries.</span>
           <span className="menu-feature-link">Discover EIB Group <span aria-hidden="true">↗</span></span>
