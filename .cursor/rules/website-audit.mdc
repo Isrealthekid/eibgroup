@@ -1,0 +1,9 @@
+---
+description: Apply the EIB Group audit and SEO standards to website work
+alwaysApply: true
+---
+
+- Follow `AGENTS.md` and read `docs/website-audit.md` before working on website pages.
+- Apply the checklist for the relevant brand; do not report another subsidiary's audit findings as confirmed issues in this project.
+- Follow the user's instructions when they differ from audit recommendations.
+- Keep SEO, accessibility, accurate content and working enquiry paths part of each page's implementation.
