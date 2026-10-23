@@ -5,22 +5,25 @@ Prepared on 24 October 2026 for the current EIB Group redesign.
 ## Implemented
 
 - `/privacy` describes the current website and provides a clear draft notice.
-- Privacy requests use `info@eibstratoc.com`, supplied by the user for this purpose. No claim is made that this is a designated Data Protection Officer or that mailbox monitoring has been verified.
+- The user confirmed the company name as EIB Group and the business address as Idu Industrial Area, Abuja, Nigeria. No registration suffix or company number has been invented.
+- Privacy requests use `info@eibstratoc.com`, explicitly confirmed by the user for this purpose. No claim is made that this is a designated Data Protection Officer.
+- The user confirmed that the company manages its business mailboxes and handles enquiries. This establishes operational responsibility, not the identity of an underlying hosting or email service provider, individual access roles or a retention period.
 - Existing marketing and business enquiry addresses are unchanged.
 - Footer, contact and newsletter links point to the notice.
 - The newsletter remains a preview; it does not submit or store addresses. Inputs and the submit button are disabled before hydration and when JavaScript is off to prevent native query-string submission.
-- No advertising/analytics code, tracking storage or automated decision-making feature was identified in this version of the frontend. This is not a verification of production hosting, mailbox or other provider practices.
+- The user confirmed no analytics, advertising pixels, tracking cookies or third-party content embeds are in use. No tracking storage or automated decision-making feature was identified in this version of the frontend. Hosting logs and provider infrastructure still need confirmation.
+- A newsletter provider has not been decided; signup remains inactive.
 
 ## Confirm before finalising
 
-- [ ] Registered data-controller name, business address and any representative details.
-- [ ] Responsibility for the user-supplied privacy inbox, including request routing and responses.
+- [x] Company name and business address supplied by the user: EIB Group, Idu Industrial Area, Abuja, Nigeria.
+- [x] Privacy contact and company responsibility confirmed by the user. Detailed request routing/handling remains covered by the procedure check below.
 - [ ] Actual purposes and specific lawful bases for email correspondence and operational logs.
 - [ ] Hosting, email and other providers; types of records, recipient access and processing locations.
 - [ ] Retention periods or defensible criteria for enquiries, backups and logs, plus deletion arrangements.
 - [ ] Actual technical/organisational security measures and access controls; avoid guarantees of absolute security.
 - [ ] Any international-transfer arrangements and applicable safeguards.
-- [ ] Whether production adds cookies, analytics or embedded third-party services absent from this repository. Add appropriate choices before enabling any processing that needs them.
+- [x] User confirms no analytics, tracking cookies, advertising pixels or third-party content embeds are active. Check the actual hosting provider's operational cookies/logs and recheck before adding new services.
 - [ ] Working privacy request procedure and accurate rights/complaints information.
 - [ ] Appropriate organisational review of the completed notice against actual operations and applicable law.
 

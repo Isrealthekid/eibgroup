@@ -30,7 +30,7 @@ Remaining work:
 - Develop clear enquiry paths and appropriate calls to action for clients, partners and applicants where supported by real business processes.
 - Add useful subsidiary detail and credible evidence such as approved projects, case studies and testimonials.
 - Replace dummy executive names and blank portraits with approved profiles.
-- Finalise the draft privacy and data-handling notice once the legal entity, provider details, lawful bases and retention arrangements are confirmed. The draft page and its links have now been implemented; see the progress note below.
+- Finalise the draft privacy and data-handling notice once the provider details, lawful bases and retention arrangements are confirmed. The user has supplied the company name/address and confirmed the privacy contact; see the progress note below.
 - Replace inactive social placeholders when official profiles are supplied. LinkedIn is active; Instagram, Facebook and X are intentionally disabled at the user's request.
 - Connect newsletter collection when the user is ready. The current form intentionally does not store or transmit submissions and must not claim that subscription succeeded.
 - Verify destination URLs for subsidiaries, especially name-based URLs supplied before verification.
@@ -119,5 +119,6 @@ Verify applicable primary legal sources when drafting the policy. Separate a dra
 - Added truthful newsletter status text. Its controls remain disabled until hydration so a no-JavaScript or early native submission cannot put an email into the URL.
 - The draft privacy page has a canonical URL, social metadata and `noindex, follow`. It is excluded from the sitemap until `privacyNotice.isDraft` is cleared after the content is finalised.
 - Added robots and sitemap metadata routes for the public pages. Social-preview metadata on the older pages is still a separate outstanding item.
-- The legal entity/address, hosting and email providers, lawful bases, retention/deletion, access controls and any cross-border processing still require operational confirmation. These are not fixed by adding a page.
+- The user confirmed EIB Group at Idu Industrial Area, Abuja, Nigeria, the privacy inbox, company management of mailboxes and enquiries, and no active tracking/analytics or third-party content embeds. Newsletter service selection is undecided and signup remains inactive.
+- Hosting and underlying email providers, lawful bases, retention/deletion periods, detailed access controls and any cross-border processing still require operational confirmation. Company management of the mailboxes does not identify their technical provider or retention practices.
 - Finalisation checklist and primary legal references: `docs/privacy-notice-review.md`.

@@ -32,7 +32,7 @@ const sections = [
     title: 'Who this notice covers',
     content: <>
       <p>This notice concerns the EIB Group corporate website. It describes the features available in this version and how to raise a privacy question. Subsidiaries and other websites linked from this site may have their own privacy notices.</p>
-      <p>The registered legal entity responsible for the website and its business address are awaiting confirmation. Until this notice is finalised, you can direct privacy enquiries to <a href={privacyContactHref}>{privacyNotice.contactEmail}</a>, the contact supplied for this purpose.</p>
+      <p>This website is operated by {privacyNotice.companyName}, based at {privacyNotice.businessAddress}. For privacy questions or requests, contact <a href={privacyContactHref}>{privacyNotice.contactEmail}</a>, the confirmed privacy contact for this website.</p>
     </>,
   },
   {
@@ -40,8 +40,8 @@ const sections = [
     title: 'Information you share by email',
     content: <>
       <p>The Contact page provides email links. Opening one launches your email application; the website does not send a message on your behalf. If you choose to send an email, it may contain your name, email address, organisation, message and attachments.</p>
-      <p>Correspondence is intended to support your enquiry and any related follow-up. The email services involved process the message as part of delivery and storage. Please avoid sending identity documents, financial details, health information or other sensitive material in an initial enquiry.</p>
-      <p>The specific lawful basis for handling enquiries and the arrangements for access to correspondence must be confirmed before this draft becomes a final notice.</p>
+      <p>EIB Group manages its business mailboxes and handles the enquiries and related correspondence received through them. The email services involved process messages as part of delivery and storage. Please avoid sending identity documents, financial details, health information or other sensitive material in an initial enquiry.</p>
+      <p>The specific lawful basis for handling enquiries, the underlying email service and the detailed arrangements for access to correspondence must be confirmed before this draft becomes a final notice.</p>
     </>,
   },
   {
@@ -49,7 +49,7 @@ const sections = [
     title: 'Newsletter signup',
     content: <>
       <p>Newsletter signup is not active yet. The form currently lets you preview the interaction, but it does not send your email address to EIB Group, save it in the website’s storage or add you to a mailing list. A message on the form explains this when you use it.</p>
-      <p>Before signup is activated, this notice and the form will need to identify the newsletter service, explain how email addresses are used and provide the relevant subscription and unsubscribe choices.</p>
+      <p>A newsletter provider has not yet been selected. Before signup is activated, this notice and the form will need to identify the service, explain how email addresses are used and provide the relevant subscription and unsubscribe choices.</p>
     </>,
   },
   {
@@ -57,7 +57,7 @@ const sections = [
     title: 'Technical data, cookies and analytics',
     content: <>
       <p>Loading a website involves exchanging connection information, such as an IP address and browser request details, with its hosting service. The hosting provider may keep operational or security logs. The provider and its logging arrangements have not yet been confirmed for this notice.</p>
-      <p>This version of the website does not include application analytics, advertising trackers or tracking cookies. It does not use browser storage to remember newsletter entries. This description does not establish what cookies or logs a hosting service, email provider or linked website may use.</p>
+      <p>EIB Group has confirmed that this website does not use analytics, advertising pixels, tracking cookies or third-party content embeds. It does not use browser storage to remember newsletter entries. This does not establish what operational cookies or logs a hosting service, email provider or linked website may use.</p>
       <p>No automated decision-making or profiling feature is built into this website. If tracking or other data-processing features are added, the notice and any necessary visitor controls must be updated before they are enabled.</p>
     </>,
   },
@@ -65,7 +65,7 @@ const sections = [
     id: 'providers',
     title: 'Service providers and external websites',
     content: <>
-      <p>Website hosting and email delivery involve service providers. Their identities, processing locations, access arrangements and any relevant international-transfer safeguards are still being confirmed. This draft does not claim that information is stored only in Nigeria.</p>
+      <p>EIB Group manages its mailboxes, but the website hosting provider and the services supporting email delivery have not yet been specified for this notice. Their processing locations, access arrangements and any relevant international-transfer safeguards are still being confirmed. This draft does not claim that information is stored only in Nigeria.</p>
       <p>Company cards and social links take you to other websites. Those services receive the connection information needed to load their pages and may process information under their own notices. Review those notices before sharing personal information with them.</p>
     </>,
   },
@@ -110,7 +110,7 @@ export default function PrivacyPage() {
         </header>
         <aside className="privacy-review-note" aria-labelledby="privacy-review-title">
           <h2 id="privacy-review-title">Details under review</h2>
-          <p>The responsible legal entity, business address, service providers, lawful bases and retention arrangements are awaiting confirmation. This draft explains the current website features and will be finalised when those details are verified.</p>
+          <p>The company details and privacy contact below are confirmed. Hosting and email service details, lawful bases and retention arrangements are still being confirmed. This draft will be finalised when those remaining details are verified.</p>
         </aside>
         <div className="privacy-layout">
           <nav className="privacy-contents" aria-labelledby="privacy-contents-title">
