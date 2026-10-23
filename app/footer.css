@@ -21,6 +21,9 @@
 .footer-newsletter button { flex: none; padding: 1rem 1.5rem; border: 0; border-radius: 0; background: #fff; color: var(--brand-accent); font-size: 0.875rem; line-height: 1.5; transition: background-color .2s ease; }
 .footer-newsletter button:hover { background: #f0e4ea; }
 .footer-newsletter-status { min-height: 1.125rem; margin: 0.75rem 0 0; color: rgb(255 255 255 / 80%); font-size: 0.75rem; line-height: 1.5; }
+.footer-newsletter-notice { margin: .875rem 0 0; color: rgb(255 255 255 / 80%); font-size: .75rem; line-height: 1.6; }
+.footer-newsletter-notice a { text-decoration: underline; text-underline-offset: .2em; }
+.footer-newsletter :disabled { cursor: default; }
 .footer-columns { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr) minmax(0, 1.1fr); gap: clamp(1.5rem, 4vw, 4.5rem); padding: clamp(2.75rem, 5vw, 5rem) 0; }
 .footer-brand { display: block; width: min(14.375rem, 100%); }
 .footer-brand svg { display: block; width: 100%; height: auto; aspect-ratio: 1180 / 176; }
@@ -36,8 +39,10 @@
 .footer-column > a:last-child { margin-bottom: 0; }
 .footer-contact a { overflow-wrap: anywhere; }
 .footer-column > a:hover { color: var(--brand-accent); text-decoration: underline; text-underline-offset: 0.25rem; }
-.footer-bottom { border-top: 1px solid #dcd9dc; padding-top: 1.25rem; }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem 2rem; border-top: 1px solid #dcd9dc; padding-top: 1.25rem; }
 .footer-bottom p { margin: 0; color: #727074; font-size: 0.75rem; line-height: 1.5; }
+.footer-bottom > a { color: #727074; font-size: .75rem; line-height: 1.5; text-decoration: underline; text-underline-offset: .2em; }
+.footer-bottom > a:hover { color: var(--brand-accent); }
 @media (min-width: 56.3125em) {
   .site-footer { display: flex; min-height: 100vh; padding-top: clamp(6rem, 14vh, 11rem); }
   .footer-panel { display: flex; flex-direction: column; }

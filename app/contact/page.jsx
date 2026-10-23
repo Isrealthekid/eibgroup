@@ -43,6 +43,7 @@ export default function ContactPage() {
                 ))}
               </ul>
             </nav>
+            <p className="contact-privacy-note">Emailing us shares your message with the email services involved. Please avoid sending sensitive personal information. <a href="/privacy">Read our privacy notice</a>.</p>
           </div>
         </section>
         <div className="contact-image" data-navigation-tone="dark">

@@ -18,6 +18,9 @@
 .contact-socials ul { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem 1.5rem; margin: 0; padding: 0; list-style: none; font-size: .875rem; line-height: 1.5; }
 .contact-socials a { display: inline-flex; gap: .5rem; align-items: center; }
 .contact-social-unavailable { color: #a2a0a3; cursor: default; }
+.contact-privacy-note { max-width: 35rem; margin: 1.5rem 0 0; color: #727074; font-size: .75rem; line-height: 1.6; }
+.contact-privacy-note a { text-decoration: underline; text-underline-offset: .2em; }
+.contact-privacy-note a:hover { color: var(--brand-accent); }
 .contact-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .contact-image { flex: 1 0 auto; width: 100%; height: 34svh; min-height: 14rem; overflow: hidden; background: #e6e5e3; }
 .contact-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 48%; }

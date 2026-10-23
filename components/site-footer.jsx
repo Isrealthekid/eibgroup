@@ -52,7 +52,10 @@ export default function SiteFooter({ isHome = true, currentPage }) {
             {contactEmails.map(email => <a key={email.address} href={`mailto:${email.address}`}>{email.address}</a>)}
           </div>
         </div>
-        <div className="footer-bottom"><p>© {new Date().getFullYear()} EIB Group</p></div>
+        <div className="footer-bottom">
+          <p>© {new Date().getFullYear()} EIB Group</p>
+          <a href="/privacy" aria-current={currentPage === 'privacy' ? 'page' : undefined}>Privacy &amp; data handling</a>
+        </div>
       </div>
     </footer>
   );

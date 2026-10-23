@@ -30,7 +30,7 @@ Remaining work:
 - Develop clear enquiry paths and appropriate calls to action for clients, partners and applicants where supported by real business processes.
 - Add useful subsidiary detail and credible evidence such as approved projects, case studies and testimonials.
 - Replace dummy executive names and blank portraits with approved profiles.
-- Add accurate privacy and data-handling information and relevant links.
+- Finalise the draft privacy and data-handling notice once the legal entity, provider details, lawful bases and retention arrangements are confirmed. The draft page and its links have now been implemented; see the progress note below.
 - Replace inactive social placeholders when official profiles are supplied. LinkedIn is active; Instagram, Facebook and X are intentionally disabled at the user's request.
 - Connect newsletter collection when the user is ready. The current form intentionally does not store or transmit submissions and must not claim that subscription succeeded.
 - Verify destination URLs for subsidiaries, especially name-based URLs supplied before verification.
@@ -110,3 +110,14 @@ Base all copy on confirmed facts. Before finalising it, establish:
 Current code provides mailto contact links and a frontend-only newsletter form; the newsletter does not yet save or send email addresses. Hosting logs and email-provider processing cannot be ruled out just because the frontend contains no analytics code. Do not claim that no personal data or cookies are processed without checking the services involved.
 
 Verify applicable primary legal sources when drafting the policy. Separate a draft from confirmed operational facts; do not represent generated wording as a guarantee of legal compliance.
+
+### Privacy implementation progress: 24 October 2026
+
+- Added `/privacy` with plain-language explanations, section navigation and explicit draft status.
+- The user supplied `info@eibstratoc.com` for privacy requests. This is used only for privacy; the two existing EIB Group business contact emails remain unchanged.
+- Added privacy links in the shared footer, newsletter form and Contact page. Contact still has no full footer, per the user's request.
+- Added truthful newsletter status text. Its controls remain disabled until hydration so a no-JavaScript or early native submission cannot put an email into the URL.
+- The draft privacy page has a canonical URL, social metadata and `noindex, follow`. It is excluded from the sitemap until `privacyNotice.isDraft` is cleared after the content is finalised.
+- Added robots and sitemap metadata routes for the public pages. Social-preview metadata on the older pages is still a separate outstanding item.
+- The legal entity/address, hosting and email providers, lawful bases, retention/deletion, access controls and any cross-border processing still require operational confirmation. These are not fixed by adding a page.
+- Finalisation checklist and primary legal references: `docs/privacy-notice-review.md`.
