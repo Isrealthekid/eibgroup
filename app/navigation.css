@@ -5,7 +5,7 @@
   --nav-muted: #b5b5ba;
   --nav-surface: rgb(36 36 38 / 36%);
   --nav-border: rgb(255 255 255 / 9%);
-  top: 4rem;
+  top: 3.25rem;
   display: block;
   width: 15.5rem;
   height: 3.5rem;
@@ -102,7 +102,7 @@
   to { transform: translate(-50%, 0); }
 }
 @media (max-width: 37.5em) {
-  .navigation { width: 15.5rem; height: 3.5rem; top: 1.25rem; }
+  .navigation { width: 15.5rem; height: 3.5rem; top: 1rem; }
   .navigation.is-open { width: calc(100vw - 2rem); height: 24rem; max-height: calc(100svh - 2.5rem); overflow-y: auto; }
   .nav-symbol { left: 1.125rem; }
   .menu { top: 4rem; grid-template-columns: 1fr; gap: 1.25rem; padding: 1rem 1.25rem 1.25rem; }
@@ -112,7 +112,7 @@
   .menu .menu-feature-title { font-size: 1.5rem; }
 }
 @media (max-height: 31.25em) and (max-width: 63.99em) and (orientation: landscape) {
-  .navigation { top: 0.875rem; }
+  .navigation { top: 0.75rem; }
   .navigation.is-open { max-height: calc(100svh - 1.75rem); overflow-y: auto; }
 }
 @media (prefers-reduced-motion: reduce) {
