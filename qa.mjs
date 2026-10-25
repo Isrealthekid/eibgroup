@@ -5,6 +5,7 @@ const artifacts=path.resolve('artifacts');
 await mkdir(artifacts,{recursive:true});
 const profile=path.join(artifacts,`chrome-qa-${Date.now()}`);
 const chrome=spawn('C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',['--headless=new','--use-angle=swiftshader','--enable-unsafe-swiftshader','--no-first-run','--no-default-browser-check','--remote-debugging-port=0',`--user-data-dir=${profile}`,'about:blank'],{windowsHide:true,stdio:'ignore'});
+const preview=`http://127.0.0.1:${process.env.PORT||3000}`;
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let ws;
 try {
@@ -22,8 +23,8 @@ try {
  const report=[];
  for(const size of [{name:'wide',width:1920,height:1080},{name:'desktop',width:1440,height:900},{name:'tablet',width:768,height:1024},{name:'mobile',width:390,height:844},{name:'small-mobile',width:320,height:568},{name:'landscape',width:844,height:390}]){
   await send('Emulation.setDeviceMetricsOverride',{width:size.width,height:size.height,deviceScaleFactor:1,mobile:false});
-  const response=await fetch('http://127.0.0.1:4173');if(!response.ok)throw Error('Preview HTTP check failed');
-  await send('Page.navigate',{url:'http://127.0.0.1:4173'});await sleep(700);
+  const response=await fetch(preview);if(!response.ok)throw Error('Preview HTTP check failed');
+  await send('Page.navigate',{url:preview});await sleep(700);
   if(!await evaluate(`Boolean(document.querySelector('.hero-logo'))`))throw Error('Preview did not load');
   if(!await evaluate(`[...document.scripts].some(script=>script.src.includes('/_next/'))`))throw Error('Next.js assets did not load');
   let initialLogoWidth;

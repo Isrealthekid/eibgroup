@@ -11,6 +11,9 @@ async function sendFile(res, file, status = 200) {
   res.end(body);
 }
 
+// Listen on all interfaces so the container's reverse proxy can reach it.
+const port = Number(process.env.PORT) || 3000;
+
 createServer(async (req, res) => {
   try {
     const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
@@ -28,4 +31,4 @@ createServer(async (req, res) => {
   } catch {}
   try { await sendFile(res, path.join(root, '404.html'), 404); }
   catch { res.writeHead(404); res.end('Not found'); }
-}).listen(4173, '127.0.0.1', () => console.log('Local: http://localhost:4173'));
+}).listen(port, '0.0.0.0', () => console.log(`Local: http://localhost:${port}`));
