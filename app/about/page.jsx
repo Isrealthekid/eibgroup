@@ -4,9 +4,10 @@ import './about.css';
 
 export const metadata = {
   title: 'About — EIB Group',
-  description: 'Discover EIB Group, our vision, our mission and the executive leadership behind our businesses.',
+  description: 'Discover EIB Group, our vision, our mission and our commitment to lasting value across Africa.',
 };
 
+/* Temporarily disabled until approved executive profiles and headshots are ready.
 // Replace the sample names and portrait placeholders when profiles are supplied.
 const team = [
   { name: 'Alex Morgan', role: 'Chairman' },
@@ -19,6 +20,7 @@ const team = [
   { name: 'Morgan Hayes', role: 'Director of Strategy' },
   { name: 'Jamie Parker', role: 'Head of Legal & Compliance' },
 ];
+*/
 
 export default function AboutPage() {
   return (
@@ -38,7 +40,9 @@ export default function AboutPage() {
           <nav className="about-section-links" aria-label="On this page">
             <a href="#vision">Our vision <span aria-hidden="true">↘</span></a>
             <a href="#mission">Our mission <span aria-hidden="true">↘</span></a>
+            {/* Restore with the leadership section when approved profiles and headshots are ready.
             <a href="#executive-leadership">Executive leadership <span aria-hidden="true">↘</span></a>
+            */}
           </nav>
         </header>
         <div className="about-purpose" data-navigation-tone="dark">
@@ -51,6 +55,7 @@ export default function AboutPage() {
             <p>To grow businesses that solve real needs through investment in people, technology and partnerships, delivering reliable services and responsible growth across the industries we serve.</p>
           </section>
         </div>
+        {/* Temporarily disabled until approved executive profiles and headshots are ready.
         <section id="executive-leadership" className="about-team" aria-labelledby="executive-leadership-title">
           <header className="team-heading">
             <h2 id="executive-leadership-title" className="section-heading">Executive leadership.</h2>
@@ -71,6 +76,7 @@ export default function AboutPage() {
             ))}
           </ul>
         </section>
+        */}
       </main>
       <SiteFooter isHome={false} currentPage="about" />
     </>

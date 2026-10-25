@@ -18,7 +18,7 @@ Audit-specific findings are on pages 3–5; shared recommendations are on pages 
 Addressed in the redesign as of this date:
 
 - Placeholder phone removed; the two user-provided emails are displayed.
-- Homepage, `/about` and `/contact` provide separate entry points. About includes vision, mission and executive leadership; the former standalone team page has been merged into it.
+- Homepage, `/about` and `/contact` provide separate entry points. About includes vision and mission. The former team page was merged into About; its executive leadership section, data and navigation links are temporarily commented out at the user's request on 25 October 2026 until approved profiles/headshots are ready.
 - Subsidiary cards are clickable external links with descriptions and local logo assets. The audit explicitly accepts external websites; internal subsidiary profiles are not required simply to satisfy clickability.
 - The raw MP4 hero has been replaced with the globe and circle animation. This removes the audited video issue but does not establish a performance score for the replacement.
 - The unsupported impact/uptime figures were removed. Current counts describe industry pillars and companies rather than unsupported service guarantees.
@@ -29,7 +29,7 @@ Remaining work:
 - Configure complete Open Graph/social preview metadata with production URLs and suitable images. Titles and descriptions alone are insufficient.
 - Develop clear enquiry paths and appropriate calls to action for clients, partners and applicants where supported by real business processes.
 - Add useful subsidiary detail and credible evidence such as approved projects, case studies and testimonials.
-- Replace dummy executive names and blank portraits with approved profiles.
+- Replace the commented-out dummy executive names and blank portraits with approved profiles/headshots before restoring the About page's leadership section and its links. Keep the section hidden until those assets are ready.
 - Finalise the draft privacy and data-handling notice once the provider details, lawful bases and retention arrangements are confirmed. The user has supplied the company name/address and confirmed the privacy contact; see the progress note below.
 - Replace inactive social placeholders when official profiles are supplied. LinkedIn is active; Instagram, Facebook and X are intentionally disabled at the user's request.
 - Connect newsletter collection when the user is ready. The current form intentionally does not store or transmit submissions and must not claim that subscription succeeded.

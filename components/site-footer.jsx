@@ -42,7 +42,9 @@ export default function SiteFooter({ isHome = true, currentPage }) {
           <nav className="footer-column footer-links" aria-labelledby="footer-links-title">
             <h2 id="footer-links-title" className="footer-heading">Quick links</h2>
             <a href="/about" aria-current={currentPage === 'about' ? 'page' : undefined}>About</a>
+            {/* Restore when the About page's leadership section is ready.
             <a href="/about#executive-leadership">Executive leadership</a>
+            */}
             <a href={homeSection('#companies')}>Our companies</a>
             <a href="/contact" aria-current={currentPage === 'contact' ? 'page' : undefined}>Contact</a>
             <a href="https://www.brightechefufoundation.org" target="_blank" rel="noopener noreferrer">Our foundation <span aria-hidden="true">↗</span></a>
